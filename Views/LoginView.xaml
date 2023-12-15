@@ -1,0 +1,23 @@
+﻿<Page x:Class="studyApp.Views.LoginView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:studyApp.Views"
+        xmlns:Models="clr-namespace:studyApp.Models"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="Auto" Width="Auto">
+
+    <Grid Background="#FFF0F0F0">
+        <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid Width="800" Height="450">
+                <TextBox x:Name="enployeeNumberTextField" Height="40" Margin="370,142,0,0" TextWrapping="Wrap" Width="171" FontWeight="Bold" FontSize="16" Background="White" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <PasswordBox x:Name="passwordTextField" HorizontalAlignment="Left" Height="40" Margin="370,188,0,0" VerticalAlignment="Top" Width="171" FontWeight="Bold" FontSize="16" Background="White" PasswordChar="*"/>
+                <Label x:Name="enployeeNumberText" Content="職員番号" HorizontalAlignment="Left" Margin="254,143,0,0" VerticalAlignment="Top" Height="40" Width="95" FontSize="16" FontWeight="Bold" FlowDirection="RightToLeft"/>
+                <Label x:Name="passwordText" Content="パスワード" HorizontalAlignment="Left" Margin="254,183,0,0" VerticalAlignment="Top" Height="40" Width="95" FontSize="16" FontWeight="Bold" FlowDirection="RightToLeft"/>
+                <Label x:Name="changePasswordWarningText" Content="※パスワードを忘れてしまった場合は管理者にお問い合わせください。" HorizontalAlignment="Left" Margin="254,310,0,0" VerticalAlignment="Top" Width="330"/>
+                <Button x:Name="loginOKButton" Content="OK" HorizontalAlignment="Left" Margin="412,341,0,0" VerticalAlignment="Top" Width="129" Height="37" BorderBrush="White" Background="White" FontWeight="Bold" FontSize="18" Click="loginOKButton_Click" IsDefault="True"/>
+            </Grid>
+        </Viewbox>
+    </Grid>
+</Page>
