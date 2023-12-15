@@ -44,14 +44,14 @@ namespace studyApp.Views
 
            
                
-            System.Windows.Application.Current.Properties["Menber"] = member;//ここまでは必要なくなる
+            System.Windows.Application.Current.Properties["Menber"] = 111;//ここまでは必要なくなる
             //次のページへ
             if (Screen == null)
             {
                 // 次に表示するページを生成、以後使いまわし
                 Screen = new Mainpage();
             }
-            System.Windows.Application.Current.Properties["Grade"] = jsonGrade.ReadFile(enployeeNumber);
+            System.Windows.Application.Current.Properties["Grade"] = jsonGrade.ReadFile("111");
             // Mainpageへ移動
             this.NavigationService.Navigate(Screen);
                

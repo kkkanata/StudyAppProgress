@@ -45,6 +45,10 @@ namespace studyApp.Views
                 MessageBox.Show("読み込みエラー");
             }
 
+            var jsonGrade = new ReadJsonDataClass.ReadGrade();
+            System.Windows.Application.Current.Properties["Menber"] = 111;
+            System.Windows.Application.Current.Properties["Grade"] = jsonGrade.ReadFile("111");
+
             // 最大化表示
             this.WindowState = WindowState.Maximized;
             Uri uri = new Uri("Mainpage.xaml", UriKind.Relative); //こことNavigationとの関係を理解しなくてはならない

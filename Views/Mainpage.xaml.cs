@@ -26,7 +26,7 @@ namespace studyApp.Views
         public Mainpage()
         {
             InitializeComponent();
-            JsonDataClass.Member member = (JsonDataClass.Member)Application.Current.Properties["Menber"];
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
