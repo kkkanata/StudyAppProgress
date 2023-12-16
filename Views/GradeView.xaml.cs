@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using studyApp.Common;
 using JsonDataPack;
 
@@ -39,34 +42,34 @@ namespace studyApp.Views
         public GradeView()
         {
             InitializeComponent();
-            this.DataContext = new Control("全依頼区分","全期間");
+            this.DataContext = new Control("全依頼区分", "全期間");
 
             OtherClass otherClass = new OtherClass();
-            List<string> categoryArray =otherClass.ReturnCategoryArray();
+            List<string> categoryArray = otherClass.ReturnCategoryArray();
             IList<JsonDataClass.RescueRequestData> Rescue = (IList<JsonDataClass.RescueRequestData>)Application.Current.Properties["RescuRecest"];
-            
-            List<string> createDateArray =  new List<string>() {};
+
+            List<string> createDateArray = new List<string>() { };
             List<string> comboBoxArray = new List<string>() { };
-            
+
             foreach (string val in categoryArray)
             {
                 //依頼区分をPullDownに追加
                 gradeCategoryPullDown.Items.Add(val);
             }
-            for(int cnt = 0; cnt < Rescue.Count(); cnt++)
+            for (int cnt = 0; cnt < Rescue.Count(); cnt++)
             {
                 if (!createDateArray.Contains(Rescue[cnt].rCreateDate))
                 {
                     createDateArray.Add(Rescue[cnt].rCreateDate);
                 }
-                
+
             }
-            for (int i = 1; i < createDateArray.Count()+1; i++)
+            for (int i = 1; i < createDateArray.Count() + 1; i++)
             {
                 comboBoxArray.Add("第" + i + "回");
             }
-            
-            foreach(string val2 in comboBoxArray)
+
+            foreach (string val2 in comboBoxArray)
             {
                 gradePeriodPullDown.Items.Add(val2);
             }
@@ -76,7 +79,7 @@ namespace studyApp.Views
         public class Control
         {
             public List<Contents> Controls { get; set; }
-            public Control(String category, String date )
+            public Control(String category, String date)
             {
                 IList<JsonDataClass.RescueRequestData> Rescue = (IList<JsonDataClass.RescueRequestData>)Application.Current.Properties["RescuRecest"];
                 JsonDataClass.Grade Grade = (JsonDataClass.Grade)Application.Current.Properties["Grade"];
@@ -114,7 +117,7 @@ namespace studyApp.Views
                     //未解答の場合通る
                     if (num == -1)
                     {
-                        if ((Rescue[i].rCategory == category || category == "全依頼区分") && (createDateArray[flagTime]== createTime|| (date == "全期間")))
+                        if ((Rescue[i].rCategory == category || category == "全依頼区分") && (createDateArray[flagTime] == createTime || (date == "全期間")))
                         {
                             //データをクラスに格納
                             Contents controlData = new Contents
@@ -128,7 +131,7 @@ namespace studyApp.Views
                                 Visibility = "Hidden"   //ボタンを非表示にしテキストを表示するためのHidden
 
                             };
-                            if(colorCnt % 2 == 0)
+                            if (colorCnt % 2 == 0)
                             {
                                 controlData.Color = "White";
                                 colorCnt++;
@@ -145,8 +148,8 @@ namespace studyApp.Views
                     }
                     else
                     {
-                            if ((Rescue[i].rCategory == category || category == "全依頼区分") && (createDateArray[flagTime] == createTime || (date == "全期間")))
-                            {
+                        if ((Rescue[i].rCategory == category || category == "全依頼区分") && (createDateArray[flagTime] == createTime || (date == "全期間")))
+                        {
                             //解答中のデータの場合通る
                             if (Grade.rescueRequestState[num].rAnswered == "解答中")
                             {
@@ -174,7 +177,7 @@ namespace studyApp.Views
                                 controlDatabutton.Add(controlData);
                             }
                             //解答済みかつミスが0の場合通る
-                            else if(Grade.rescueRequestState[num].rAnswered == "解答済" && Grade.rescueRequestState[num].rMissCount == 0)
+                            else if (Grade.rescueRequestState[num].rAnswered == "解答済" && Grade.rescueRequestState[num].rMissCount == 0)
                             {
                                 //データをクラスに格納
                                 Contents controlData = new Contents
@@ -232,7 +235,7 @@ namespace studyApp.Views
                 //追加したデータを表示
                 Controls = controlDatabutton;
             }
-            
+
         }
         private void returnToMainButton_Click(object sender, RoutedEventArgs e)
         {
@@ -246,11 +249,36 @@ namespace studyApp.Views
         }
         private void gradePeriodPullDown_DropDownClosed(object sender, EventArgs e)
         {
-            DataContext = new Control(gradeCategoryPullDown.Text,gradePeriodPullDown.Text);
+            DataContext = new Control(gradeCategoryPullDown.Text, gradePeriodPullDown.Text);
         }
         private void gradeCategoryPullDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataContext = gradeCategoryPullDown.SelectedItem.ToString();
         }
+        private void screenshotButton_Click(object sender, RoutedEventArgs e)
+        {
+            // スクリーンショットのファイル名を指定
+            string path = @"C:\Users\user\Pictures\Screenshots\screenshot.png"; // 保存先のパスを適宜変更してください
+
+            // スクリーンショットを撮る
+            TakeScreenshot(path);
+
+            // 任意の処理（例：撮影完了の通知）
+            MessageBox.Show("スクリーンショットが保存されました: " + path);
+        }
+        private void TakeScreenshot(string filename)
+        {
+            // デスクトップ全体のスクリーンショットを撮る
+            var screenBounds = System.Windows.Forms.Screen.PrimaryScreen.Bounds;
+            using (var bitmap = new Bitmap(screenBounds.Width, screenBounds.Height))
+            {
+                using (var g = Graphics.FromImage(bitmap))
+                {
+                    g.CopyFromScreen(new System.Drawing.Point(screenBounds.Left, screenBounds.Top), System.Drawing.Point.Empty, screenBounds.Size);
+                }
+                bitmap.Save(filename, ImageFormat.Png); // PNG形式で保存
+            }
+        }
+
     }
 }
