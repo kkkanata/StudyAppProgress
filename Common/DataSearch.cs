@@ -78,7 +78,7 @@ namespace studyApp.Common
         /// </summary>
         /// <param name="Number">問題番号</param>
         /// <returns>rescueRequest(救援依頼データ)のQuestionのqNumberにマッチする要素番号</returns>
-        public int QuestionSearch(int rNum, int Number)
+        public int QuestionSearch(int rNum, int? Number)
         {
             int eleNum = -1;
             if (Number >= 0)

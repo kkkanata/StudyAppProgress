@@ -99,7 +99,7 @@ namespace JsonDataPack
                     public string cAnswer { get; set; }
                     public string cRight { get; set; }
                     public int cDecrement { get; set; }
-                    public int cNext { get; set; }
+                    public int? cNext { get; set; }
                     public string cExplanation { get; set; }
 
                 }
@@ -109,7 +109,7 @@ namespace JsonDataPack
                 public string qType { get; set; }
                 public string qText { get; set; }
                 public string[] qPhotos { get; set; }
-                public int qNext { get; set; }
+                public int? qNext { get; set; } //int?型に変更
                 public int qCoordinateX { get; set; }
                 public int qCoordinateY { get; set; }
                 public Choices[] choices { get; set; }
