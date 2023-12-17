@@ -1,155 +1,154 @@
 {
-	"rNumber": 1,
-	"rVehicle": "ウイングロード",
-	"rVNumber":"11-92",
-	"rCapacity":"500,000,000,000,000,000,000,000kg",
-	"rWorkPlace":"ａｕｍａｔａｗｈａｋａｔａｎｇｉｈａｎｇａｋｏａｕａｕｏｔａｍａｔｅａｐｏｋａｉｗｈｅｎｕａｋｉｔａｎａｔａｈｕ",
-	"rMeetingPlace":"北海道東部の太平洋沿岸にある市。釧路総合振興局の振興局所在地。",
-	"rCategory": "エンジン不始動",
-	"rTitle":"エンジンがかからないヨ1",
-	"rStatus": "バッテリー上がり",
-	"rPlace": "一般道　自宅",
-	"rDetail": "エンジンかからない、鍵が開けられない、タイヤが溝にはまった、タイヤがバーストした。",
-	"rCarColor": "スノーホワイト",
-	"rPhoto": "C:/Users/user/source/repos/kama-yudai108/studyApp2/bin/Debug/ImgResouse/Rphoto/image.jpg",
-	"rSuccessScore": 60,
-	"rCreateDate": "2021/06/25",
-	"rPublic": true,
-	"rStartQuestion": 1,
-	"question":
-	[
-		{
-	"qNumber":1,
-	"qCheckPoint":false,
-	"qType":"単一選択",
-	"qText":"○○○○の○○○○は○○○○ですか？○○○○は○○○○とし、○○○○は○○○○の状態です。○○○○はまず○○○○のうち○○○○から○○○○を○○○○して○○○○です。○○○○は○○○○です。",
-	"qPhotos":[
-		"C:/Users/user/source/repos/kama-yudai108/studyApp2/bin/Debug/ImgResouse/Qphoto/image.jpg",						
-		"C:/Users/user/source/repos/kama-yudai108/studyApp2/bin/Debug/ImgResouse/Qphoto/image.jpg"					
-	],
-	"qNext":-1,
-	"qCoordinateX":10,
-	"qCoordinateY":20,
-	"choices":[
-		{
-			"cNumber":1,
-			"cAnswer":"正解",
-			"cRight":"正解",
-			"cDecrement":0,
-			"cNext":2,
-			"cExplanation":"解説1"
-		},
-		{
-			"cNumber":2,
-			"cAnswer":"ミス1",
-			"cRight":"ミス",
-			"cDecrement":1,
-			"cNext":2,
-			"cExplanation":"解説2"
-		},
-		{
-			"cNumber":3,
-			"cAnswer":"作業事故",
-			"cRight":"作業事故",
-			"cDecrement":100,
-			"cNext":-1,
-			"cExplanation":"解説3"
-		}
-	]
-},
-{
-	"qNumber":2,
-	"qCheckPoint":true,
-	"qType":"単一選択",
-	"qText":"○○○○ですか？",
-	"qPhotos":[
-		"C:/Users/user/source/repos/kama-yudai108/studyApp2/bin/Debug/ImgResouse/Qphoto/image.jpg",						
-		"C:/Users/user/source/repos/kama-yudai108/studyApp2/bin/Debug/ImgResouse/Qphoto/image.jpg"					
-	],
-	"qNext":-1,
-	"qCoordinateX":40,
-	"qCoordinateY":60,
-	"choices":[
-		{
-			"cNumber":1,
-			"cAnswer":"正解",
-			"cRight":"正解",
-			"cDecrement":0,
-			"cNext":3,
-			"cExplanation":"解説1"
-		},
-		{
-			"cNumber":2,
-			"cAnswer":"ミス1",
-			"cRight":"ミス",
-			"cDecrement":1,
-			"cNext":3,
-			"cExplanation":"解説2"
-		},
-		{
-			"cNumber":3,
-			"cAnswer":"ミス2",
-			"cRight":"ミス",
-			"cDecrement":1,
-			"cNext":3,
-			"cExplanation":"解説3"
-		},
-		{
-			"cNumber":4,
-			"cAnswer":"ミス3",
-			"cRight":"ミス",
-			"cDecrement":1,
-			"cNext":3,
-			"cExplanation":"解説4"
-		}
-	]
-},
-{
-	"qNumber":3,
-	"qCheckPoint":true,
-	"qType":"単一選択",
-	"qText":"○○○○ですか？",
-	"qPhotos":[
-		"C:/Users/user/source/repos/kama-yudai108/studyApp2/bin/Debug/ImgResouse/Qphoto/image.jpg",						
-		"C:/Users/user/source/repos/kama-yudai108/studyApp2/bin/Debug/ImgResouse/Qphoto/image.jpg"					
-	],
-	"qNext":-1,
-	"qCoordinateX":70,
-	"qCoordinateY":100,
-	"choices":[
-		{
-			"cNumber":1,
-			"cAnswer":"正解",
-			"cRight":"正解",
-			"cDecrement":0,
-			"cNext":-1,
-			"cExplanation":"解説1"
-		},
-		{
-			"cNumber":2,
-			"cAnswer":"ミス1",
-			"cRight":"ミス",
-			"cDecrement":1,
-			"cNext":-1,
-			"cExplanation":"解説2"
-		},
-		{
-			"cNumber":3,
-			"cAnswer":"ミス2",
-			"cRight":"ミス",
-			"cDecrement":1,
-			"cNext":-1,
-			"cExplanation":"解説3"
-		},
-		{
-			"cNumber":4,
-			"cAnswer":"ミス3",
-			"cRight":"ミス",
-			"cDecrement":1,
-			"cNext":-1,
-			"cExplanation":"解説4"
-		}
-	]
-}
-	]
+  "rNumber": 1,
+  "rCapacity": "3,000kg",
+  "rVehicle": "プリウス",
+  "rCategory": "エンジン不始動",
+  "rTitle": "エンジンkakakakka",
+  "rStatus": "バッテリー上がり",
+  "rPlace": "○○会社　駐車場",
+  "rDetail": "社員が車内灯を点灯させたままにしてしまい、バッテリーがあがってしまった。13時から出張があるためそれまでには直してほしい。",
+  "rCarColor": "白",
+  "rPhoto": "rescueRequest001.png",
+  "rSuccessScore": 80,
+  "rCreateDate": "2021/06/25",
+  "rPublic": true,
+  "rStartQuestion": 1,
+  "Question": [
+    {
+      "qNumber": 1,
+      "qCheckPoint": false,
+      "qType": "単一選択",
+      "qText": "○○○○の○○○○は○○○○ですか？○○○○は○○○○とし、○○○○は○○○○の状態です。○○○○はまず○○○○のうち○○○○から○○○○を○○○○して○○○○です。○○○○は○○○○です。",
+      "qPhotos": [
+        "image1.jpeg",
+        "image2.jpeg"
+      ],
+      "qNext": -1,
+      "qCoordinateX": 10,
+      "qCoordinateY": 20,
+      "choices": [
+        {
+          "cNumber": 1,
+          "cAnswer": "これは正解ここに選択肢がでますこれは正解",
+          "cRight": "正解",
+          "cDecrement": 0,
+          "cNext": 2,
+          "cExplanation": "解説1"
+        },
+        {
+          "cNumber": 2,
+          "cAnswer": "これはミスここに選択肢がでますこれはここに選択肢がでますこれはここに選択肢がでますこれはミス",
+          "cRight": "ミス",
+          "cDecrement": 1,
+          "cNext": 2,
+          "cExplanation": "解説2"
+        },
+        {
+          "cNumber": 3,
+          "cAnswer": "これは作業事故ここに選択肢がでますこれはここに選択肢がでますこれはここに選択肢がでますこれは作業事故",
+          "cRight": "作業事故",
+          "cDecrement": 100,
+          "cNext": -1,
+          "cExplanation": "解説3"
+        }
+      ]
+    },
+    {
+      "qNumber": 2,
+      "qCheckPoint": true,
+      "qType": "単一選択",
+      "qText": "○○○○ですか？",
+      "qPhotos": [
+        "image3.jpeg",
+        "image4.jpeg"
+      ],
+      "qNext": -1,
+      "qCoordinateX": 40,
+      "qCoordinateY": 60,
+      "choices": [
+        {
+          "cNumber": 1,
+          "cAnswer": "選択肢これは正解これは正解これは正解正解",
+          "cRight": "正解",
+          "cDecrement": 0,
+          "cNext": 3,
+          "cExplanation": "解説1"
+        },
+        {
+          "cNumber": 2,
+          "cAnswer": "選択肢これはミスこれはミスこれはミスこれはミスこれはミスこれはミスこれはミスこれはミス",
+          "cRight": "ミス",
+          "cDecrement": 1,
+          "cNext": 3,
+          "cExplanation": "解説2"
+        },
+        {
+          "cNumber": 3,
+          "cAnswer": "ミス",
+          "cRight": "ミス",
+          "cDecrement": 1,
+          "cNext": 3,
+          "cExplanation": "解説3"
+        },
+        {
+          "cNumber": 4,
+          "cAnswer": "ミス",
+          "cRight": "ミス",
+          "cDecrement": 1,
+          "cNext": 3,
+          "cExplanation": "解説4"
+        }
+      ]
+    },
+    {
+      "qNumber": 3,
+      "qCheckPoint": true,
+      "qType": "単一選択",
+      "qText": "○○○○ですか？",
+      "qPhotos": [
+        "image5.jpeg",
+        "image6.jpeg"
+      ],
+      "qNext": -1,
+      "qCoordinateX": 70,
+      "qCoordinateY": 100,
+      "choices": [
+        {
+          "cNumber": 1,
+          "cAnswer": "正解",
+          "cRight": "正解",
+          "cDecrement": 0,
+          "cNext": -1,
+          "cExplanation": "解説1"
+        },
+        {
+          "cNumber": 2,
+          "cAnswer": "ミス",
+          "cRight": "ミス",
+          "cDecrement": 1,
+          "cNext": -1,
+          "cExplanation": "解説2"
+        },
+        {
+          "cNumber": 3,
+          "cAnswer": "ミス",
+          "cRight": "ミス",
+          "cDecrement": 1,
+          "cNext": -1,
+          "cExplanation": "解説3"
+        },
+        {
+          "cNumber": 4,
+          "cAnswer": "ミス",
+          "cRight": "ミス",
+          "cDecrement": 1,
+          "cNext": -1,
+          "cExplanation": "解説4"
+        }
+      ]
+    }
+  ],
+  "rVNumber": "12-17",
+  "rWorkPlace": "",
+  "rMeetingPlace": ""
 }

@@ -66,7 +66,7 @@ namespace studyApp.Common
             IList<JsonDataClass.RescueRequestData> rescuRecest = (IList<JsonDataClass.RescueRequestData>)Application.Current.Properties["RescuRecest"];
             int select = 0;
             int num = QuestionSearch(rNum, qNum);
-            if (rescuRecest[rNum].question[num].qType == "複数選択")
+            if (rescuRecest[rNum].question[num+1].qType == "複数選択")
             {
                 select = 1;
             }
