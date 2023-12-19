@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Reflection;
+using System.IO;
 using studyApp.Common;
 using JsonDataPack;
 
@@ -38,7 +40,10 @@ namespace studyApp.Views.SubView
             vehicleInformationImage.Items.Add("出勤場所　　: " + rescu[rNum].rWorkPlace);
             vehicleInformationImage.Items.Add("待合場所　　: " + rescu[rNum].rMeetingPlace);
 
-            vehicleImage.DataContext = rescu[rNum].rPhoto;
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Rphoto";
+
+            vehicleImage.DataContext = System.IO.Path.Combine(exePath,imgResourceRelativePath,rescu[rNum].rPhoto);
         }                                                                                                       　//指令画面の表示内容↑
 
         private void commandScreenCloseButton_Click(object sender, RoutedEventArgs e)   //閉じるボタンを押したときの処理

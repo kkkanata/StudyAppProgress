@@ -55,10 +55,10 @@ namespace studyApp.Views
                 }
             }
             explanationStatementText.Text += com;
-            explanationStatementText.Text += "作業事故\n・" + rescue[Num].question[res.workAccident.sNumber +1].choices[res.workAccident.sChoices +1].cAnswer + "\n" + rescue[Num].question[res.workAccident.sNumber - 1].choices[res.workAccident.sChoices - 1].cExplanation;
+            explanationStatementText.Text += "作業事故\n・" + rescue[Num].question[res.workAccident.sNumber].choices[res.workAccident.sChoices].cAnswer + "\n" + rescue[Num].question[res.workAccident.sNumber].choices[res.workAccident.sChoices].cExplanation;
 
             resultDetailText.Content = "作業事故：あり　ミス：" + res.rMissCount;
-        }
+        }   
 
         private void returnToMainButton_Click(object sender, RoutedEventArgs e)
         {

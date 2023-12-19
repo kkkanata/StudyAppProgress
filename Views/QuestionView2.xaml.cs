@@ -78,6 +78,7 @@ namespace studyApp.Views
                 }
             }
 
+            
             btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //問題画像を格納
 
             menuPullDown.Items.Add("指令画面へ");

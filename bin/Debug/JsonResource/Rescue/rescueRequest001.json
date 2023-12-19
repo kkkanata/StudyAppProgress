@@ -1,16 +1,19 @@
 {
   "rNumber": 1,
-  "rCapacity": "3,000kg",
-  "rVehicle": "プリウス",
-  "rCategory": "エンジン不始動",
-  "rTitle": "エンジンkakakakka",
-  "rStatus": "バッテリー上がり",
-  "rPlace": "○○会社　駐車場",
-  "rDetail": "社員が車内灯を点灯させたままにしてしまい、バッテリーがあがってしまった。13時から出張があるためそれまでには直してほしい。",
-  "rCarColor": "白",
-  "rPhoto": "rescueRequest001.png",
-  "rSuccessScore": 80,
-  "rCreateDate": "2021/06/25",
+  "rVehicle": "tryu",
+  "rVNumber": "qwerty",
+  "rCapacity": "qwerty",
+  "rWorkPlace": "12345678",
+  "rMeetingPlace": "asdfghj",
+  "rCategory": "qwertyt",
+  "rTitle": "qwerty",
+  "rStatus": "qwertyu",
+  "rPlace": "qwerty",
+  "rDetail": "asdfg",
+  "rCarColor": "zxcvbn",
+  "rPhoto": "rescueRequest001.jpg",
+  "rSuccessScore": 100,
+  "rCreateDate": "2023/12/18",
   "rPublic": true,
   "rStartQuestion": 1,
   "Question": [
@@ -18,85 +21,92 @@
       "qNumber": 1,
       "qCheckPoint": false,
       "qType": "単一選択",
-      "qText": "○○○○の○○○○は○○○○ですか？○○○○は○○○○とし、○○○○は○○○○の状態です。○○○○はまず○○○○のうち○○○○から○○○○を○○○○して○○○○です。○○○○は○○○○です。",
+      "qText": "asdfghj",
       "qPhotos": [
-        "image1.jpeg",
-        "image2.jpeg"
+        "rescueRequest001001_1.jpg"
       ],
-      "qNext": -1,
-      "qCoordinateX": 10,
-      "qCoordinateY": 20,
+      "qNext": null,
+      "qCoordinateX": 0,
+      "qCoordinateY": 0,
       "choices": [
         {
           "cNumber": 1,
-          "cAnswer": "これは正解ここに選択肢がでますこれは正解",
+          "cAnswer": "qwerty",
           "cRight": "正解",
           "cDecrement": 0,
-          "cNext": 2,
-          "cExplanation": "解説1"
+          "cNext": 3,
+          "cExplanation": "asdfgh"
         },
         {
           "cNumber": 2,
-          "cAnswer": "これはミスここに選択肢がでますこれはここに選択肢がでますこれはここに選択肢がでますこれはミス",
+          "cAnswer": "asdfghj",
           "cRight": "ミス",
-          "cDecrement": 1,
+          "cDecrement": 0,
           "cNext": 2,
-          "cExplanation": "解説2"
+          "cExplanation": "asdfghj"
         },
         {
           "cNumber": 3,
-          "cAnswer": "これは作業事故ここに選択肢がでますこれはここに選択肢がでますこれはここに選択肢がでますこれは作業事故",
+          "cAnswer": "asdfghj",
+          "cRight": "ミス",
+          "cDecrement": 0,
+          "cNext": 2,
+          "cExplanation": "asdfghj"
+        },
+        {
+          "cNumber": 4,
+          "cAnswer": "zxcvbn",
           "cRight": "作業事故",
-          "cDecrement": 100,
+          "cDecrement": 0,
           "cNext": -1,
-          "cExplanation": "解説3"
+          "cExplanation": "sadfgh"
         }
       ]
     },
     {
       "qNumber": 2,
-      "qCheckPoint": true,
-      "qType": "単一選択",
-      "qText": "○○○○ですか？",
+      "qCheckPoint": false,
+      "qType": "複数選択",
+      "qText": "12345678",
       "qPhotos": [
-        "image3.jpeg",
-        "image4.jpeg"
+        "rescueRequest001002_1.jpg",
+        "rescueRequest001002_2.jpg"
       ],
-      "qNext": -1,
-      "qCoordinateX": 40,
-      "qCoordinateY": 60,
+      "qNext": 3,
+      "qCoordinateX": 0,
+      "qCoordinateY": 0,
       "choices": [
         {
           "cNumber": 1,
-          "cAnswer": "選択肢これは正解これは正解これは正解正解",
+          "cAnswer": "asdfghj",
           "cRight": "正解",
           "cDecrement": 0,
-          "cNext": 3,
-          "cExplanation": "解説1"
+          "cNext": null,
+          "cExplanation": "sdfghj"
         },
         {
           "cNumber": 2,
-          "cAnswer": "選択肢これはミスこれはミスこれはミスこれはミスこれはミスこれはミスこれはミスこれはミス",
+          "cAnswer": "asdfhj",
           "cRight": "ミス",
-          "cDecrement": 1,
-          "cNext": 3,
-          "cExplanation": "解説2"
+          "cDecrement": 0,
+          "cNext": null,
+          "cExplanation": "asdfghjk"
         },
         {
           "cNumber": 3,
-          "cAnswer": "ミス",
-          "cRight": "ミス",
-          "cDecrement": 1,
-          "cNext": 3,
-          "cExplanation": "解説3"
+          "cAnswer": "asdfghj",
+          "cRight": "作業事故",
+          "cDecrement": 0,
+          "cNext": null,
+          "cExplanation": "asdfghj"
         },
         {
           "cNumber": 4,
-          "cAnswer": "ミス",
-          "cRight": "ミス",
-          "cDecrement": 1,
-          "cNext": 3,
-          "cExplanation": "解説4"
+          "cAnswer": "zxcvbn",
+          "cRight": "正解",
+          "cDecrement": 0,
+          "cNext": null,
+          "cExplanation": "asdfgh"
         }
       ]
     },
@@ -104,51 +114,40 @@
       "qNumber": 3,
       "qCheckPoint": true,
       "qType": "単一選択",
-      "qText": "○○○○ですか？",
+      "qText": "ertyu",
       "qPhotos": [
-        "image5.jpeg",
-        "image6.jpeg"
+        "rescueRequest001003_1.jpg",
+        "rescueRequest001003_2.jpg"
       ],
-      "qNext": -1,
-      "qCoordinateX": 70,
-      "qCoordinateY": 100,
+      "qNext": null,
+      "qCoordinateX": 0,
+      "qCoordinateY": 0,
       "choices": [
         {
           "cNumber": 1,
-          "cAnswer": "正解",
+          "cAnswer": "qwert",
           "cRight": "正解",
           "cDecrement": 0,
           "cNext": -1,
-          "cExplanation": "解説1"
+          "cExplanation": ""
         },
         {
           "cNumber": 2,
-          "cAnswer": "ミス",
+          "cAnswer": "gfhj",
           "cRight": "ミス",
-          "cDecrement": 1,
+          "cDecrement": 0,
           "cNext": -1,
-          "cExplanation": "解説2"
+          "cExplanation": ""
         },
         {
           "cNumber": 3,
-          "cAnswer": "ミス",
-          "cRight": "ミス",
-          "cDecrement": 1,
+          "cAnswer": "sadfghj",
+          "cRight": "作業事故",
+          "cDecrement": 0,
           "cNext": -1,
-          "cExplanation": "解説3"
-        },
-        {
-          "cNumber": 4,
-          "cAnswer": "ミス",
-          "cRight": "ミス",
-          "cDecrement": 1,
-          "cNext": -1,
-          "cExplanation": "解説4"
+          "cExplanation": ""
         }
       ]
     }
-  ],
-  "rVNumber": "12-17",
-  "rWorkPlace": "",
-  "rMeetingPlace": ""
+  ]
 }
