@@ -66,11 +66,7 @@ namespace studyApp.Common
             IList<JsonDataClass.RescueRequestData> rescuRecest = (IList<JsonDataClass.RescueRequestData>)Application.Current.Properties["RescuRecest"];
             int select = 0;
             int num = QuestionSearch(rNum, qNum);
-            if (num == -1) // elenumが-1のままnumに格納された場合の処理を追加
-            {
-                select = 1;
-            }
-            else if (rescuRecest[rNum].question[num].qType == "複数選択")
+            if (num == -1 || rescuRecest[rNum].question[num].qType == "複数選択")// elenumが-1のままnumに格納された場合の処理を追加
             {
                 select = 1;
             }

@@ -254,7 +254,7 @@ namespace studyApp.Views
                         miss_num[miss_num.Length - 1] = false_num[j]+1;         //ミスした問題が格納されている配列の添え字を格納するための配列
                         res.rScore -= rescu[rNum].question[qNum].choices[false_num[j]].cDecrement; //合計点からマイナス
                     }
-                }                                   //ミスを選んだ時の減点処理↑
+                }                               //ミスを選んだ時の減点処理↑
                 res.rMissCount += miss_num.Count();        //ミスの数を格納
                 JsonDataClass.Grade.RescueRequestState.Miss miss = new JsonDataClass.Grade.RescueRequestState.Miss { mNumber = rescu[rNum].question[qNum].qNumber, mChoices = miss_num }; //選んだ"ミス"の問題番号と選択肢番号を格納
                 int num;
@@ -276,16 +276,18 @@ namespace studyApp.Views
                 }
                 miss_resize[miss_resize.Length - 1] = miss; //ミス配列を追加
                 res.miss = miss_resize;
-
-                var q = dataSearch.QuestionSearch(rNum, rescu[rNum].question[qNum].choices[cnext].cNext);
+                var q = -1; //ミス=>ミス=>ミス=>異常終了の個所(ここを作業事故の処理の後に移動するかも)cNextが作業事故のものに初期化されていないcnextは配列の要素数であってcNextが次の問題への要素数
                 if (text == bad_text)//作業事故の処理↓
                 {
                     res.rScore = 0;    //合計点を0にする
                     q = -1;
+                    cnext = bad_num;
                     res.rAnswered = "解答ミス";
                     res.workAccident.sNumber = rescu[rNum].question[qNum].qNumber;
                     res.workAccident.sChoices = bad_num+1;       //作業事故を起こした問題番号と選択肢番号を格納
                 }                                      //作業事故の処理↑
+
+                q = dataSearch.QuestionSearch(rNum, rescu[rNum].question[qNum].choices[cnext].cNext);//変更箇所このコードが作業事故の処理の前にあったためエラーが出ていた
 
                 if (q != -1)            //最後の問題でなければ次の問題への遷移の処理     -1なら最後の問題
                 {

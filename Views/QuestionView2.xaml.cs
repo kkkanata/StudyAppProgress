@@ -106,7 +106,7 @@ namespace studyApp.Views
             public Control()
             {
                 List<ControData2> list1 = new List<ControData2>();
-                for (int i = 0; i < rescu[rNum].question[qNum].choices.Count(); i++)    //問題文を選択肢の数分表示
+                for (int i = 0; i < rescu[rNum].question[qNum].choices.Count(); i++)    //問題文を選択肢の数分表示 //エラー個所
                 {
                     list1.Add(
                         new ControData2()

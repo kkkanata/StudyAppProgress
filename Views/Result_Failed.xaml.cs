@@ -55,7 +55,7 @@ namespace studyApp.Views
                 }
             }
             explanationStatementText.Text += com;
-            explanationStatementText.Text += "作業事故\n・" + rescue[Num].question[res.workAccident.sNumber].choices[res.workAccident.sChoices].cAnswer + "\n" + rescue[Num].question[res.workAccident.sNumber].choices[res.workAccident.sChoices].cExplanation;
+            explanationStatementText.Text += "作業事故\n・" + rescue[Num].question[res.workAccident.sNumber].choices[res.workAccident.sChoices].cAnswer + "\n" + rescue[Num].question[res.workAccident.sNumber].choices[res.workAccident.sChoices].cExplanation;//エラー個所
 
             resultDetailText.Content = "作業事故：あり　ミス：" + res.rMissCount;
         }   
