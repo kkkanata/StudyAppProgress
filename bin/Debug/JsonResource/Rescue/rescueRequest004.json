@@ -11,7 +11,7 @@
     "rPlace": "高速道路",
     "rDetail": "エンジンかからない",
     "rCarColor": "青",
-    "rPhoto": "C:\\Users\\user\\Pictures\\Camera Roll\\image0.jpeg",
+    "rPhoto": "image0.jpeg",
     "rSuccessScore": 60,
     "rCreateDate": "2021/06/25",
     "rPublic": true,
@@ -21,10 +21,10 @@
             "qNumber": 1,
             "qCheckPoint": true,
             "qType": "単一選択",
-            "qText": "○○○○ですか？",
+            "qText": "○○○○ですか？1",
             "qPhotos": [
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image1.jpeg",
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image2.jpeg"
+                "image1.jpeg",
+                "image2.jpeg"
             ],
             "qNext": null,
             "qCoordinateX": 10,
@@ -40,7 +40,7 @@
                 },
                 {
                     "cNumber": 2,
-                    "cAnswer": "ミス",
+                    "cAnswer": "ミス1",
                     "cRight": "ミス",
                     "cDecrement": 1,
                     "cNext": 2,
@@ -60,10 +60,10 @@
             "qNumber": 2,
             "qCheckPoint": true,
             "qType": "単一選択",
-            "qText": "○○○○ですか？",
+            "qText": "○○○○ですか？2",
             "qPhotos": [
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image3.jpeg",
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image4.jpeg"
+                "image3.jpeg",
+                "image4.jpeg"
             ],
             "qNext": null,
             "qCoordinateX": 40,
@@ -71,7 +71,7 @@
             "choices": [
                 {
                     "cNumber": 1,
-                    "cAnswer": "ミス",
+                    "cAnswer": "ミス2",
                     "cRight": "ミス",
                     "cDecrement": 1,
                     "cNext": 3,
@@ -87,7 +87,7 @@
                 },
                 {
                     "cNumber": 3,
-                    "cAnswer": "ミス",
+                    "cAnswer": "ミス3",
                     "cRight": "ミス",
                     "cDecrement": 1,
                     "cNext": 3,
@@ -107,10 +107,10 @@
             "qNumber": 3,
             "qCheckPoint": true,
             "qType": "単一選択",
-            "qText": "○○○○ですか？",
+            "qText": "○○○○ですか？3",
             "qPhotos": [
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image5.jpeg",
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image6.jpeg"
+                "image5.jpeg",
+                "image6.jpeg"
             ],
             "qNext": null,
             "qCoordinateX": 70,
@@ -138,10 +138,10 @@
             "qNumber": 4,
             "qCheckPoint": true,
             "qType": "単一選択",
-            "qText": "○○○○ですか？",
+            "qText": "○○○○ですか？4",
             "qPhotos": [
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image7.jpeg",
-                "C:\\Users\\user\\Pictures\\Camera Roll\\image8.jpeg"
+                "image7.jpeg",
+                "image8.jpeg"
             ],
             "qNext": null,
             "qCoordinateX": 100,

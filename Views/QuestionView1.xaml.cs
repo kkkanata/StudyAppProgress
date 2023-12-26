@@ -77,8 +77,10 @@ namespace studyApp.Views
                     bad_num = i;
                 }
             }
-
-            btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //問題画像を格納
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
+            btmimg.DataContext = System.IO.Path.Combine(exePath,imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);
+            /*btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //問題画像を格納 // 上の処理により、ファイル名のみで取得出来る*/
 
             menuPullDown.Items.Add("指令画面へ");
             menuPullDown.Items.Add("問題を閉じてメイン画面へ");
@@ -92,7 +94,7 @@ namespace studyApp.Views
         string[] false_text = { "", "", "", "" };   　//cRightが"ミス"の問題文を格納するための配列
         int[] false_num = { -1, -1, -1, -1 };       　//cRightが"ミス"の問題の選択肢番号の添え字を入れておくための配列
         string bad_text = "";                         //cRightが"作業事故"の問題文を格納するための配列
-        int bad_num = -1;                             //cRightが"作業事故"の問題の選択肢番号の添え字を入れておくための配列
+        int bad_num = -1;                             //cRightが"作業事故"の問題の選択肢番号の添え字を入れておくための配列(配列?)
         string[] answer = { "", "", "", "" };       　//一時的に問題文を格納しておくための配列
 
         public class Control        //問題文を表示するための処理↓
@@ -189,6 +191,9 @@ namespace studyApp.Views
 
         private void backImageButton_Click(object sender, RoutedEventArgs e)    //矢印ボタン"＞"の処理
         {
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto"; 
+
             int rNum = (int)Application.Current.Properties["next"];
             if (rescu[rNum].question[qNum].qPhotos.Count() >= 2)    //画像の数が2個以上の時
             {
@@ -197,12 +202,12 @@ namespace studyApp.Views
                 if (j > rescu[rNum].question[qNum].qPhotos.Count() - 1)     //最後の画像で、"＞"を押したとき
                 {
                     j = 0;      //1個目の画像の添え字を格納
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);//画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
                 else     //次の画像に遷移
                 {
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
             }
@@ -210,6 +215,9 @@ namespace studyApp.Views
 
         private void forwardImageButton_Click(object sender, RoutedEventArgs e)     //矢印ボタン"＜"の処理
         {
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
+
             int rNum = (int)Application.Current.Properties["next"];
             if (rescu[rNum].question[qNum].qPhotos.Count() >= 2)    //画像の数が2個以上の時
             {
@@ -218,12 +226,12 @@ namespace studyApp.Views
                 if (j < 0)      //最初の画像で、"＜"を押したとき
                 {
                     j = rescu[rNum].question[qNum].qPhotos.Count() - 1;     //最後の画像の添え字を格納
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
                 else     //前の画像に遷移
                 {
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
             }
@@ -276,7 +284,7 @@ namespace studyApp.Views
                 }
                 miss_resize[miss_resize.Length - 1] = miss; //ミス配列を追加
                 res.miss = miss_resize;
-                var q = -1; //ミス=>ミス=>ミス=>異常終了の個所(ここを作業事故の処理の後に移動するかも)cNextが作業事故のものに初期化されていないcnextは配列の要素数であってcNextが次の問題への要素数
+                var q = -1; //バグ修正個所(解決済み?-1を入れているのはなんとなく)
                 if (text == bad_text)//作業事故の処理↓
                 {
                     res.rScore = 0;    //合計点を0にする
@@ -284,7 +292,7 @@ namespace studyApp.Views
                     cnext = bad_num;
                     res.rAnswered = "解答ミス";
                     res.workAccident.sNumber = rescu[rNum].question[qNum].qNumber;
-                    res.workAccident.sChoices = bad_num+1;       //作業事故を起こした問題番号と選択肢番号を格納
+                    res.workAccident.sChoices = bad_num;       //作業事故を起こした問題番号と選択肢番号を格納(+1を消去した)
                 }                                      //作業事故の処理↑
 
                 q = dataSearch.QuestionSearch(rNum, rescu[rNum].question[qNum].choices[cnext].cNext);//変更箇所このコードが作業事故の処理の前にあったためエラーが出ていた
@@ -312,6 +320,7 @@ namespace studyApp.Views
                     }
                     if (rescu[rNum].rSuccessScore > res.rScore)      //点数が合格点に満たなかった時の処理
                     {
+                        res.workAccident.sNumber = -2; //作業事故選択肢を選んだ際と点数が満たなかった場合で分岐処理するためのフラグ的な-1(可読性は考慮していない)
                         if (dataSearch.ResqueSearch(res.rNumber) == -1)    //成績データにrNumberに該当するデータがなければ新しく追加する
                         {
                             JsonDataClass.Grade.RescueRequestState[] rescue_resize = new JsonDataClass.Grade.RescueRequestState[grade.rescueRequestState.Length+1];
@@ -319,7 +328,7 @@ namespace studyApp.Views
                             {
                                 rescue_resize[i] = grade.rescueRequestState[i];
                             }
-                            rescue_resize[rescue_resize.Length-1] = res;
+                            rescue_resize[rescue_resize.Length -1] = res;//rescue_resize[rescue_resize.Length-1]
                             grade.rescueRequestState = rescue_resize;
                         }
                         else        //成績データにrNumberに該当するデータがあればそのデータを上書きする
@@ -349,7 +358,7 @@ namespace studyApp.Views
                             {
                                 rescue_resize[i] = grade.rescueRequestState[i];
                             }
-                            rescue_resize[rescue_resize.Length-1] = res;
+                            rescue_resize[rescue_resize.Length -1] = res;//rescue_resize[rescue_resize.Length-1]
                             grade.rescueRequestState = rescue_resize;
                         }
                         else        //成績データにrNumberに該当するデータがあればそのデータを上書きする

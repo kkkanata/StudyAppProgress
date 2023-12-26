@@ -40,7 +40,7 @@ namespace studyApp.Views
             {
                 com += "ミス\n";
             }
-            for (int i = 0; i <res.miss.Length; i++)
+            for (int i = 0; i < res.miss.Length; i++)
             {
                 // 救援依頼データの問題番号にマッチする要素番号
                 int qNum = dataSearch.QuestionSearch(Num,res.miss[i].mNumber) ;

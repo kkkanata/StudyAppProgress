@@ -43,15 +43,15 @@
           "cRight": "ミス",
           "cDecrement": 7,
           "cNext": -1,
-          "cExplanation": ""
+          "cExplanation": "かかかか"
         },
         {
           "cNumber": 3,
           "cAnswer": "ghi",
           "cRight": "作業事故",
-          "cDecrement": 100,
+          "cDecrement": 0,
           "cNext": -1,
-          "cExplanation": ""
+          "cExplanation": "機器危機期！"
         }
       ]
     }

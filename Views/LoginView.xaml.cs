@@ -36,7 +36,7 @@ namespace studyApp.Views
         private static Mainpage Screen = null;
         private void loginOKButton_Click(object sender, RoutedEventArgs e)
         {
-            var jsonMember = new ReadJsonDataClass.ReadMember(); //ここから
+            var jsonMember = new ReadJsonDataClass.ReadMember();
             var jsonGrade = new ReadJsonDataClass.ReadGrade();
             string enployeeNumber = enployeeNumberTextField.Text;
             string password = passwordTextField.Password;
@@ -44,7 +44,7 @@ namespace studyApp.Views
 
            
                
-            System.Windows.Application.Current.Properties["Menber"] = 111;//ここまでは必要なくなる
+            System.Windows.Application.Current.Properties["Menber"] = 111;
             //次のページへ
             if (Screen == null)
             {

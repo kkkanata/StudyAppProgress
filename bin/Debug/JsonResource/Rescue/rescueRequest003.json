@@ -7,7 +7,7 @@
 	"rTitle": "エンジン!!",
 	"rDetail": "エンジンかからない",
 	"rCarColor": "青",
-	"rPhoto": "C:\\Users\\user\\Pictures\\Camera Roll\\image0.jpeg",
+	"rPhoto": "image0.jpg",
 	"rSuccessScore": 60,
 	"rCreateDate": "2021/06/25",
 	"rPublic": true,
@@ -17,10 +17,10 @@
 			"qNumber": 1,
 			"qCheckPoint": true,
 			"qType": "単一選択",
-			"qText": "○○○○ですか？",
+			"qText": "○○○○ですか？1",
 			"qPhotos": [
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image1.jpeg",
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image2.jpeg"
+				"rescueRequest001001_1.png",
+				"rescueRequest001002_1.png"
 			],
 			"qNext": null,
 			"qCoordinateX": 10,
@@ -36,7 +36,7 @@
 				},
 				{
 					"cNumber": 2,
-					"cAnswer": "ミス",
+					"cAnswer": "ミスq23",
 					"cRight": "ミス",
 					"cDecrement": 1,
 					"cNext": 2,
@@ -56,10 +56,10 @@
 			"qNumber": 2,
 			"qCheckPoint": true,
 			"qType": "単一選択",
-			"qText": "○○○○ですか？",
+			"qText": "○○○○ですか？2",
 			"qPhotos": [
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image3.jpeg",
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image4.jpeg"
+				"image3.jpg",
+				"image4.jpg"
 			],
 			"qNext": null,
 			"qCoordinateX": 40,
@@ -67,7 +67,7 @@
 			"choices": [
 				{
 					"cNumber": 1,
-					"cAnswer": "ミス",
+					"cAnswer": "ミス125",
 					"cRight": "ミス",
 					"cDecrement": 1,
 					"cNext": 3,
@@ -83,7 +83,7 @@
 				},
 				{
 					"cNumber": 3,
-					"cAnswer": "ミス",
+					"cAnswer": "ミス123",
 					"cRight": "ミス",
 					"cDecrement": 1,
 					"cNext": 3,
@@ -103,10 +103,10 @@
 			"qNumber": 3,
 			"qCheckPoint": true,
 			"qType": "単一選択",
-			"qText": "○○○○ですか？",
+			"qText": "○○○○ですか？3",
 			"qPhotos": [
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image5.jpeg",
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image6.jpeg"
+				"image5.jpg",
+				"image6.jpg"
 			],
 			"qNext": null,
 			"qCoordinateX": 70,
@@ -134,10 +134,10 @@
 			"qNumber": 4,
 			"qCheckPoint": true,
 			"qType": "単一選択",
-			"qText": "○○○○ですか？",
+			"qText": "○○○○ですか？4",
 			"qPhotos": [
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image7.jpeg",
-				"C:\\Users\\user\\Pictures\\Camera Roll\\image8.jpeg"
+				"image7.jpg",
+				"image8.jpg"
 			],
 			"qNext": null,
 			"qCoordinateX": 100,
@@ -145,7 +145,7 @@
 			"choices": [
 				{
 					"cNumber": 1,
-					"cAnswer": "ミス",
+					"cAnswer": "ミス456",
 					"cRight": "ミス",
 					"cDecrement": 1,
 					"cNext": -1,
@@ -153,7 +153,7 @@
 				},
 				{
 					"cNumber": 2,
-					"cAnswer": "ミス",
+					"cAnswer": "ミス121",
 					"cRight": "ミス",
 					"cDecrement": 1,
 					"cNext": -1,

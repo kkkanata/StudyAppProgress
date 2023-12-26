@@ -312,7 +312,7 @@ namespace studyApp.Views
                         q = -1;
                         res.rAnswered = "解答ミス";
                         res.workAccident.sNumber = rescu[rNum].question[qNum].qNumber;
-                        res.workAccident.sChoices = bad_num+1;       //作業事故を起こした問題番号と選択肢番号を格納
+                        res.workAccident.sChoices = bad_num;       //作業事故を起こした問題番号と選択肢番号を格納(+1を消した)
                     }
                 }                                      //作業事故の処理↑
 
