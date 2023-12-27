@@ -285,9 +285,10 @@ namespace studyApp.Views
                 miss_resize[miss_resize.Length - 1] = miss; //ミス配列を追加
                 res.miss = miss_resize;
                 var q = -1; //バグ修正個所(解決済み?-1を入れているのはなんとなく)
+
                 if (text == bad_text)//作業事故の処理↓
                 {
-                    res.rScore = 0;    //合計点を0にする
+                    res.rScore = -1;   //合計点を0にする(-1に変更)
                     q = -1;
                     cnext = bad_num;
                     res.rAnswered = "解答ミス";
@@ -320,7 +321,7 @@ namespace studyApp.Views
                     }
                     if (rescu[rNum].rSuccessScore > res.rScore)      //点数が合格点に満たなかった時の処理
                     {
-                        res.workAccident.sNumber = -2; //作業事故選択肢を選んだ際と点数が満たなかった場合で分岐処理するためのフラグ的な-1(可読性は考慮していない)
+                        
                         if (dataSearch.ResqueSearch(res.rNumber) == -1)    //成績データにrNumberに該当するデータがなければ新しく追加する
                         {
                             JsonDataClass.Grade.RescueRequestState[] rescue_resize = new JsonDataClass.Grade.RescueRequestState[grade.rescueRequestState.Length+1];

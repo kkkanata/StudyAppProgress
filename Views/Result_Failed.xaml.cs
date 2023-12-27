@@ -54,7 +54,7 @@ namespace studyApp.Views
                 }
             }
             explanationStatementText.Text += com;
-            if (res.workAccident.sNumber != -2)//点数が満たなかった場合はなにも行わないようにしている
+            if (res.rScore == -1)//点数が満たなかった場合はなにも行わないようにしている(これではいけない)
             {
                 explanationStatementText.Text += "作業事故\n・" + rescue[Num].question[res.workAccident.sNumber - 1].choices[res.workAccident.sChoices].cAnswer + "\n" + rescue[Num].question[res.workAccident.sNumber - 1].choices[res.workAccident.sChoices].cExplanation;//エラー個所(変数の値見れるようです)-1で配列の要素数と合わせている。これによって動くかなくなるJSONのエラーを別の方法で処理しようと思う。選択肢が三つの問題と四つの問題の違いでエラーが発生している模様(解決済み?)
             }
