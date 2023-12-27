@@ -257,8 +257,8 @@ namespace studyApp.Views
         }
         private void screenshotButton_Click(object sender, RoutedEventArgs e)
         {
-            // スクリーンショットのファイル名を指定
-            string path = @"C:\Users\user\Pictures\Screenshots\screenshot.png"; // 保存先のパスを適宜変更してください
+            string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+            string path = @"C:\Users\user\Pictures\Screenshots\screenshot_" + timestamp + ".png"; // 保存先のパスを適宜変更してください
 
             // スクリーンショットを撮る
             TakeScreenshot(path);

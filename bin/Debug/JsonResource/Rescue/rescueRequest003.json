@@ -1,0 +1,173 @@
+{
+	"rNumber": 3,
+	"rVehicle": "ウイングロード",
+	"rCategory": "エンジン不始動",
+	"rStatus": "バッテリー上がり",
+	"rPlace": "高速道路",
+	"rTitle": "エンジン!!",
+	"rDetail": "エンジンかからない",
+	"rCarColor": "青",
+	"rPhoto": "image0.jpg",
+	"rSuccessScore": 60,
+	"rCreateDate": "2021/06/25",
+	"rPublic": true,
+	"rStartQuestion": 1,
+	"question": [
+		{
+			"qNumber": 1,
+			"qCheckPoint": true,
+			"qType": "単一選択",
+			"qText": "○○○○ですか？1",
+			"qPhotos": [
+				"rescueRequest001001_1.png",
+				"rescueRequest001002_1.png"
+			],
+			"qNext": null,
+			"qCoordinateX": 10,
+			"qCoordinateY": 20,
+			"choices": [
+				{
+					"cNumber": 1,
+					"cAnswer": "正解->3",
+					"cRight": "正解",
+					"cDecrement": 0,
+					"cNext": 3,
+					"cExplanation": "解説1"
+				},
+				{
+					"cNumber": 2,
+					"cAnswer": "ミスq23",
+					"cRight": "ミス",
+					"cDecrement": 1,
+					"cNext": 2,
+					"cExplanation": "解説2"
+				},
+				{
+					"cNumber": 3,
+					"cAnswer": "正解->2",
+					"cRight": "正解",
+					"cDecrement": 0,
+					"cNext": 2,
+					"cExplanation": "解説3"
+				}
+			]
+		},
+		{
+			"qNumber": 2,
+			"qCheckPoint": true,
+			"qType": "単一選択",
+			"qText": "○○○○ですか？2",
+			"qPhotos": [
+				"image3.jpg",
+				"image4.jpg"
+			],
+			"qNext": null,
+			"qCoordinateX": 40,
+			"qCoordinateY": 60,
+			"choices": [
+				{
+					"cNumber": 1,
+					"cAnswer": "ミス125",
+					"cRight": "ミス",
+					"cDecrement": 1,
+					"cNext": 3,
+					"cExplanation": "解説1"
+				},
+				{
+					"cNumber": 2,
+					"cAnswer": "正解",
+					"cRight": "正解",
+					"cDecrement": 0,
+					"cNext": 3,
+					"cExplanation": "解説2"
+				},
+				{
+					"cNumber": 3,
+					"cAnswer": "ミス123",
+					"cRight": "ミス",
+					"cDecrement": 1,
+					"cNext": 3,
+					"cExplanation": "解説3"
+				},
+				{
+					"cNumber": 4,
+					"cAnswer": "ミス->4",
+					"cRight": "ミス",
+					"cDecrement": 2,
+					"cNext": 4,
+					"cExplanation": "解説4"
+				}
+			]
+		},
+		{
+			"qNumber": 3,
+			"qCheckPoint": true,
+			"qType": "単一選択",
+			"qText": "○○○○ですか？3",
+			"qPhotos": [
+				"image5.jpg",
+				"image6.jpg"
+			],
+			"qNext": null,
+			"qCoordinateX": 70,
+			"qCoordinateY": 100,
+			"choices": [
+				{
+					"cNumber": 1,
+					"cAnswer": "ミス -80点",
+					"cRight": "ミス",
+					"cDecrement": 80,
+					"cNext": 4,
+					"cExplanation": "解説1"
+				},
+				{
+					"cNumber": 2,
+					"cAnswer": "正解",
+					"cRight": "正解",
+					"cDecrement": 0,
+					"cNext": 4,
+					"cExplanation": "解説2"
+				}
+			]
+		},
+		{
+			"qNumber": 4,
+			"qCheckPoint": true,
+			"qType": "単一選択",
+			"qText": "○○○○ですか？4",
+			"qPhotos": [
+				"image7.jpg",
+				"image8.jpg"
+			],
+			"qNext": null,
+			"qCoordinateX": 100,
+			"qCoordinateY": 140,
+			"choices": [
+				{
+					"cNumber": 1,
+					"cAnswer": "ミス456",
+					"cRight": "ミス",
+					"cDecrement": 1,
+					"cNext": -1,
+					"cExplanation": "解説1"
+				},
+				{
+					"cNumber": 2,
+					"cAnswer": "ミス121",
+					"cRight": "ミス",
+					"cDecrement": 1,
+					"cNext": -1,
+					"cExplanation": "解説2"
+				},
+				{
+					"cNumber": 3,
+					"cAnswer": "正解",
+					"cRight": "正解",
+					"cDecrement": 0,
+					"cNext": -1,
+					"cExplanation": "解説3"
+				}
+			]
+		}
+	]
+}
