@@ -78,8 +78,10 @@ namespace studyApp.Views
                 }
             }
 
-            
-            btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //問題画像を格納
+
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
+            btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //問題画像を格納
 
             menuPullDown.Items.Add("指令画面へ");
             menuPullDown.Items.Add("問題を閉じてメイン画面へ");
@@ -106,7 +108,7 @@ namespace studyApp.Views
             public Control()
             {
                 List<ControData2> list1 = new List<ControData2>();
-                for (int i = 0; i < rescu[rNum].question[qNum].choices.Count(); i++)    //問題文を選択肢の数分表示 //エラー個所
+                for (int i = 0; i < rescu[rNum].question[qNum].choices.Count(); i++)    //問題文を選択肢の数分表示
                 {
                     list1.Add(
                         new ControData2()
@@ -181,14 +183,20 @@ namespace studyApp.Views
 
         private void questionImage_Click(object sender, RoutedEventArgs e)  //問題画面で画像を押したときの処理（画像拡大、画面遷移）
         {
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
+
             int rNum = (int)Application.Current.Properties["next"];
             var queimg = new QuestionImageView();
-            queimg.questionImage.DataContext = rescu[rNum].question[qNum].qPhotos[j];   //問題の画像を格納
+            queimg.questionImage.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);   //問題の画像を格納
             queimg.ShowDialog();
         }
 
         private void backImageButton_Click(object sender, RoutedEventArgs e)    //矢印ボタン"＞"の処理
         {
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
+
             int rNum = (int)Application.Current.Properties["next"];
             if (rescu[rNum].question[qNum].qPhotos.Count() >= 2)    //画像の数が2個以上の時
             {
@@ -197,12 +205,12 @@ namespace studyApp.Views
                 if (j > rescu[rNum].question[qNum].qPhotos.Count() - 1)     //最後の画像で、"＞"を押したとき
                 {
                     j = 0;      //1個目の画像の添え字を格納
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
                 else     //次の画像に遷移
                 {
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
             }
@@ -210,6 +218,9 @@ namespace studyApp.Views
 
         private void forwardImageButton_Click(object sender, RoutedEventArgs e)     //矢印ボタン"＜"の処理
         {
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
+
             int rNum = (int)Application.Current.Properties["next"];
             if (rescu[rNum].question[qNum].qPhotos.Count() >= 2)    //画像の数が2個以上の時
             {
@@ -218,12 +229,12 @@ namespace studyApp.Views
                 if (j < 0)      //最初の画像で、"＜"を押したとき
                 {
                     j = rescu[rNum].question[qNum].qPhotos.Count() - 1;     //最後の画像の添え字を格納
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
                 else     //前の画像に遷移
                 {
-                    btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //画像変更
+                    btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);     //画像変更
                     currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //ページ数を変更
                 }
             }
@@ -308,7 +319,7 @@ namespace studyApp.Views
                 {
                     if (Select[i] == bad_text && Select[i] != null) //選んだ問題が"作業事故"のとき
                     {
-                        res.rScore = 0;    //合計点を0にする
+                        res.rScore = -1;    //合計点を0にする
                         q = -1;
                         res.rAnswered = "解答ミス";
                         res.workAccident.sNumber = rescu[rNum].question[qNum].qNumber;

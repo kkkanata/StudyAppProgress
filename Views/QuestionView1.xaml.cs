@@ -183,9 +183,12 @@ namespace studyApp.Views
 
         private void questionImage_Click(object sender, RoutedEventArgs e)  //問題画面で画像を押したときの処理（画像拡大、画面遷移）
         {
+            string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
+
             int rNum = (int)Application.Current.Properties["next"];
             var queimg = new QuestionImageView();
-            queimg.questionImage.DataContext = rescu[rNum].question[qNum].qPhotos[j];   //問題の画像を格納
+            queimg.questionImage.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);   //問題の画像を格納
             queimg.ShowDialog();
         }
 
