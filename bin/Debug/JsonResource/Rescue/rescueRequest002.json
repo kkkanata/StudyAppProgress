@@ -1,19 +1,19 @@
 {
   "rNumber": 2,
-  "rVehicle": "asdadsa",
-  "rVNumber": "123",
-  "rCapacity": "asdad",
-  "rWorkPlace": "",
-  "rMeetingPlace": "",
-  "rCategory": "asd",
-  "rTitle": "adsada",
-  "rStatus": "45",
-  "rPlace": "fg",
-  "rDetail": "texttexttext",
-  "rCarColor": "黒",
+  "rVehicle": "プリウス",
+  "rVNumber": "12-34",
+  "rCapacity": "2,000kg",
+  "rWorkPlace": "○○支部",
+  "rMeetingPlace": "株式会社○○",
+  "rCategory": "エンジン不始動",
+  "rTitle": "テストデータ２",
+  "rStatus": "バッテリー上がり",
+  "rPlace": "株式会社○○　駐車場",
+  "rDetail": "社員が社用車を使って外回りに行こうとしたらエンジンがかからなかったらしい。",
+  "rCarColor": "白色",
   "rPhoto": "rescueRequest002.jpg",
-  "rSuccessScore": 50,
-  "rCreateDate": "2023/12/18",
+  "rSuccessScore": 60,
+  "rCreateDate": "2023/12/27",
   "rPublic": true,
   "rStartQuestion": 1,
   "Question": [
@@ -21,7 +21,7 @@
       "qNumber": 1,
       "qCheckPoint": false,
       "qType": "単一選択",
-      "qText": "hoge",
+      "qText": "問題１",
       "qPhotos": [
         "rescueRequest002001_1.jpg"
       ],
@@ -31,27 +31,127 @@
       "choices": [
         {
           "cNumber": 1,
-          "cAnswer": "abs",
-          "cRight": "正解",
-          "cDecrement": 0,
-          "cNext": -1,
-          "cExplanation": ""
+          "cAnswer": "ミス　分岐へ",
+          "cRight": "ミス",
+          "cDecrement": 5,
+          "cNext": 2,
+          "cExplanation": "ミスです。分岐先で取り返しましょう。"
         },
         {
           "cNumber": 2,
-          "cAnswer": "def",
+          "cAnswer": "ミス　分岐へ",
           "cRight": "ミス",
-          "cDecrement": 7,
-          "cNext": -1,
-          "cExplanation": "かかかか"
+          "cDecrement": 5,
+          "cNext": 2,
+          "cExplanation": "ミスです。分岐先で取り返しましょう。"
         },
         {
           "cNumber": 3,
-          "cAnswer": "ghi",
+          "cAnswer": "正解　正規ルート",
+          "cRight": "正解",
+          "cDecrement": 0,
+          "cNext": 3,
+          "cExplanation": "正解です。正規ルート"
+        },
+        {
+          "cNumber": 4,
+          "cAnswer": "作業事故　終了",
           "cRight": "作業事故",
+          "cDecrement": 100,
+          "cNext": -1,
+          "cExplanation": "作業事故、終了です。"
+        }
+      ]
+    },
+    {
+      "qNumber": 2,
+      "qCheckPoint": false,
+      "qType": "複数選択",
+      "qText": "問題２",
+      "qPhotos": [
+        "rescueRequest002002_1.jpg"
+      ],
+      "qNext": 3,
+      "qCoordinateX": 0,
+      "qCoordinateY": 0,
+      "choices": [
+        {
+          "cNumber": 1,
+          "cAnswer": "正解１",
+          "cRight": "正解",
+          "cDecrement": 20,
+          "cNext": null,
+          "cExplanation": "これと正解２を選ぶと正規ルートへ復帰できます。"
+        },
+        {
+          "cNumber": 2,
+          "cAnswer": "ミス",
+          "cRight": "作業事故",
+          "cDecrement": 20,
+          "cNext": null,
+          "cExplanation": "これはミスなので選んではいけません。"
+        },
+        {
+          "cNumber": 3,
+          "cAnswer": "正解２",
+          "cRight": "正解",
+          "cDecrement": 20,
+          "cNext": null,
+          "cExplanation": "これと正解１を選ぶと正規ルートへ復帰できます。"
+        },
+        {
+          "cNumber": 4,
+          "cAnswer": "ミス",
+          "cRight": "作業事故",
+          "cDecrement": 20,
+          "cNext": null,
+          "cExplanation": "これはミスなので選んではいけません。"
+        }
+      ]
+    },
+    {
+      "qNumber": 3,
+      "qCheckPoint": true,
+      "qType": "単一選択",
+      "qText": "最終問題",
+      "qPhotos": [
+        "rescueRequest002003_1.jpg"
+      ],
+      "qNext": null,
+      "qCoordinateX": 0,
+      "qCoordinateY": 0,
+      "choices": [
+        {
+          "cNumber": 1,
+          "cAnswer": "作業事故",
+          "cRight": "作業事故",
+          "cDecrement": 100,
+          "cNext": -1,
+          "cExplanation": "作業事故で救援失敗です。"
+        },
+        {
+          "cNumber": 2,
+          "cAnswer": "正解",
+          "cRight": "正解",
           "cDecrement": 0,
           "cNext": -1,
-          "cExplanation": "機器危機期！"
+          "cExplanation": "正解です。救援お疲れ様でした。"
+        },
+        {
+          "cNumber": 3,
+          "cAnswer": "ミス",
+          "cRight": "ミス",
+          "cDecrement": 10,
+          "cNext": -1,
+          "cExplanation": "ミスはありましたが、救援終了です。"
+        },
+        {
+          "cNumber": 4,
+          "cAnswer": "作業事故",
+          "cRight": "作業事故",
+          "cDecrement": 100,
+          "cNext": -1,
+          "cExplanation": "作業事故で救援失敗です。"
         }
       ]
     }
