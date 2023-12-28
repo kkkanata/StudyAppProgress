@@ -324,7 +324,8 @@ namespace studyApp.Views
                     }
                     if (rescu[rNum].rSuccessScore > res.rScore)      //点数が合格点に満たなかった時の処理
                     {
-                        
+                        res.rAnswered = "解答ミス";//バグの修正時に追加した
+
                         if (dataSearch.ResqueSearch(res.rNumber) == -1)    //成績データにrNumberに該当するデータがなければ新しく追加する
                         {
                             JsonDataClass.Grade.RescueRequestState[] rescue_resize = new JsonDataClass.Grade.RescueRequestState[grade.rescueRequestState.Length+1];

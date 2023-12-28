@@ -118,8 +118,8 @@ namespace studyApp.Views
                                 {
                                     // 作業事故の表示内容
                                     new ViewModelData{
-                                        questiontext ="Q." + rescue.question[elesNum].choices[elesCho].cAnswer,
-                                        accidenttext ="A." + rescue.question[elesNum].choices[elesCho].cExplanation
+                                        questiontext ="Q." + rescue.question[elesNum].choices[elesCho +1].cAnswer, //なぜか一つ前にづれていたので+1して合わせている
+                                        accidenttext ="A." + rescue.question[elesNum].choices[elesCho +1].cExplanation //なぜか一つ前にづれていたので+1して合わせている
                                     }
                                 };
                             }

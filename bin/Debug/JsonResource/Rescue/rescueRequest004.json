@@ -79,7 +79,7 @@
                 },
                 {
                     "cNumber": 2,
-                    "cAnswer": "正解",
+                    "cAnswer": "正解23",
                     "cRight": "正解",
                     "cDecrement": 0,
                     "cNext": 3,
@@ -126,7 +126,7 @@
                 },
                 {
                     "cNumber": 2,
-                    "cAnswer": "正解",
+                    "cAnswer": "正解76",
                     "cRight": "正解",
                     "cDecrement": 0,
                     "cNext": 4,
@@ -149,7 +149,7 @@
             "choices": [
                 {
                     "cNumber": 1,
-                    "cAnswer": "ミス",
+                    "cAnswer": "ミス45",
                     "cRight": "ミス",
                     "cDecrement": 1,
                     "cNext": -1,
@@ -157,7 +157,7 @@
                 },
                 {
                     "cNumber": 2,
-                    "cAnswer": "ミス",
+                    "cAnswer": "ミス78",
                     "cRight": "ミス",
                     "cDecrement": 1,
                     "cNext": -1,
@@ -165,7 +165,7 @@
                 },
                 {
                     "cNumber": 3,
-                    "cAnswer": "正解",
+                    "cAnswer": "正解99",
                     "cRight": "正解",
                     "cDecrement": 0,
                     "cNext": -1,

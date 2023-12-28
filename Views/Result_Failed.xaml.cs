@@ -33,6 +33,9 @@ namespace studyApp.Views
             int Num = (int)Application.Current.Properties["next"];
             DataSearch dataSearch = new DataSearch();
             JsonDataClass.Grade.RescueRequestState res = (JsonDataClass.Grade.RescueRequestState)Application.Current.Properties["Rescue"];
+
+            
+
             // 表示する文字列格納用
             string com = "";
             // ミスの表示

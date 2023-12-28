@@ -75,7 +75,7 @@
 				},
 				{
 					"cNumber": 2,
-					"cAnswer": "正解",
+					"cAnswer": "正解1",
 					"cRight": "正解",
 					"cDecrement": 0,
 					"cNext": 3,
@@ -122,7 +122,7 @@
 				},
 				{
 					"cNumber": 2,
-					"cAnswer": "正解",
+					"cAnswer": "正解3",
 					"cRight": "正解",
 					"cDecrement": 0,
 					"cNext": 4,
@@ -161,7 +161,7 @@
 				},
 				{
 					"cNumber": 3,
-					"cAnswer": "正解",
+					"cAnswer": "正解4",
 					"cRight": "正解",
 					"cDecrement": 0,
 					"cNext": -1,

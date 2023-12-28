@@ -30,7 +30,7 @@
             </Button.Template>
         </Button>
         <ScrollViewer Margin="10,94,10,10" BorderBrush="Black" Foreground="Black" OpacityMask="Black" Background="White">
-            <StackPanel x:Name="QAndA" Height="344" VerticalAlignment="Top">
+            <StackPanel x:Name="QAndA" VerticalAlignment="Top">
                 <Label x:Name="accidentText" FontSize="30" FontWeight="Bold" Content="作業事故"/>
                 <ItemsControl ItemsSource="{Binding accidentLists}">
                     <ItemsControl.ItemTemplate>
