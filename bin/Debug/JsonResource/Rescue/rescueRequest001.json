@@ -142,7 +142,7 @@
         },
         {
           "cNumber": 3,
-          "cAnswer": "分岐（ミス）へ",
+          "cAnswer": "分岐（ミス）へ2",
           "cRight": "ミス",
           "cDecrement": 3,
           "cNext": 4,

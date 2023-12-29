@@ -265,7 +265,7 @@ namespace studyApp.Views
                 {
                     for (int j = 0; j < right_num.Length; j++)//問題にある"正解"の数、回す
                     {
-                        if (Select[i] == right_text[j])//選んだ問題文が"正解"だったらright_numの添え字に沿った値を-1に変える
+                        if (Select[i] == right_text[j] && right_text[j] != null)//選んだ問題文が"正解"だったらright_numの添え字に沿った値を-1に変える
                         {
                             right_num[j] = -1;      //選べなかった"正解"の問題を識別するための処理
                         }
@@ -350,6 +350,7 @@ namespace studyApp.Views
                     }
                     if (rescu[rNum].rSuccessScore > res.rScore)    //点数が合格点に満たなかった時の処理
                     {
+                        res.rAnswered = "解答ミス";//バグの修正時に追加した
 
                         if (dataSearch.ResqueSearch(res.rNumber) == -1)    //成績データにrNumberに該当するデータがなければ新しく追加する
                         {
