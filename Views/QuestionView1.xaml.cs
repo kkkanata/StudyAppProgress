@@ -56,7 +56,7 @@ namespace studyApp.Views
             int rNum = (int)Application.Current.Properties["next"];     //大問が格納されてい配列の添え字
             questionStatementText.DataContext = rescu[rNum].question[qNum].qText;   //問題文を格納
 
-            currentSheetNumberText.DataContext = (j+1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //写真の数を格納
+            currentSheetNumberText.DataContext = (j + 1) + "/" + rescu[rNum].question[qNum].qPhotos.Count();    //写真の数を格納
 
             for (int i = 0; i < rescu[rNum].question[qNum].choices.Count(); i++)    //問題の選択肢の解答を"正解"、"ミス"、"作業事故"で区別してそれぞれ配列に格納
             {
@@ -79,7 +79,7 @@ namespace studyApp.Views
             }
             string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string imgResourceRelativePath = @"imgResouse\Qphoto";
-            btmimg.DataContext = System.IO.Path.Combine(exePath,imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);
+            btmimg.DataContext = System.IO.Path.Combine(exePath, imgResourceRelativePath, rescu[rNum].question[qNum].qPhotos[j]);
             /*btmimg.DataContext = rescu[rNum].question[qNum].qPhotos[j];     //問題画像を格納 // 上の処理により、ファイル名のみで取得出来る*/
 
             menuPullDown.Items.Add("指令画面へ");
@@ -195,7 +195,7 @@ namespace studyApp.Views
         private void backImageButton_Click(object sender, RoutedEventArgs e)    //矢印ボタン"＞"の処理
         {
             string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string imgResourceRelativePath = @"imgResouse\Qphoto"; 
+            string imgResourceRelativePath = @"imgResouse\Qphoto";
 
             int rNum = (int)Application.Current.Properties["next"];
             if (rescu[rNum].question[qNum].qPhotos.Count() >= 2)    //画像の数が2個以上の時
@@ -262,14 +262,14 @@ namespace studyApp.Views
                     {
                         cnext = false_num[j];               //cnextをfalse_numに変える
                         Array.Resize(ref miss_num, miss_num.Length + 1);
-                        miss_num[miss_num.Length - 1] = false_num[j]+1;         //ミスした問題が格納されている配列の添え字を格納するための配列
+                        miss_num[miss_num.Length - 1] = false_num[j] + 1;         //ミスした問題が格納されている配列の添え字を格納するための配列
                         res.rScore -= rescu[rNum].question[qNum].choices[false_num[j]].cDecrement; //合計点からマイナス
                     }
                 }                               //ミスを選んだ時の減点処理↑
                 res.rMissCount += miss_num.Count();        //ミスの数を格納
                 JsonDataClass.Grade.RescueRequestState.Miss miss = new JsonDataClass.Grade.RescueRequestState.Miss { mNumber = rescu[rNum].question[qNum].qNumber, mChoices = miss_num }; //選んだ"ミス"の問題番号と選択肢番号を格納
                 int num;
-                if(res.miss == null)
+                if (res.miss == null)
                 {
                     num = 1;
                 }
@@ -289,15 +289,34 @@ namespace studyApp.Views
                 res.miss = miss_resize;
                 var q = -1; //バグ修正個所(解決済み?-1を入れているのはなんとなく)
 
-                if (text == bad_text)//作業事故の処理↓
+                if (res.workAccident == null)
                 {
-                    res.rScore = -1;   //合計点を0にする(-1に変更)
+                    res.workAccident = new JsonDataClass.Grade.RescueRequestState.WorkAccident[1];
+                }
+
+                // 作業事故の処理
+                if (text == bad_text)
+                {
+                    res.rScore = -1;
                     q = -1;
                     cnext = bad_num;
                     res.rAnswered = "解答ミス";
-                    res.workAccident.sNumber = rescu[rNum].question[qNum].qNumber;
-                    res.workAccident.sChoices = bad_num;       //作業事故を起こした問題番号と選択肢番号を格納(+1を消去した)
-                }                                      //作業事故の処理↑
+
+                    // 作業事故の配列を拡張
+                    JsonDataClass.Grade.RescueRequestState.WorkAccident[] workAccidents = new JsonDataClass.Grade.RescueRequestState.WorkAccident[res.workAccident.Length + 1];
+                    Array.Copy(res.workAccident, workAccidents, res.workAccident.Length);
+
+                    // 新しい作業事故を作成して配列に追加
+                    JsonDataClass.Grade.RescueRequestState.WorkAccident accident = new JsonDataClass.Grade.RescueRequestState.WorkAccident
+                    {
+                        sNumber = rescu[rNum].question[qNum].qNumber,
+                        sChoices = bad_num
+                    };
+                    workAccidents[workAccidents.Length - 1] = accident;
+
+                    // 更新した作業事故の配列をresに設定
+                    res.workAccident = workAccidents;
+                }
 
                 q = dataSearch.QuestionSearch(rNum, rescu[rNum].question[qNum].choices[cnext].cNext);//変更箇所このコードが作業事故の処理の前にあったためエラーが出ていた
 
@@ -318,7 +337,7 @@ namespace studyApp.Views
                 }
                 else                 //次の問題がなければ結果画面への遷移の処理
                 {
-                    if(res.rScore != 0)
+                    if (res.rScore != 0)
                     {
                         res.rProgress = 100;
                     }
@@ -328,12 +347,12 @@ namespace studyApp.Views
 
                         if (dataSearch.ResqueSearch(res.rNumber) == -1)    //成績データにrNumberに該当するデータがなければ新しく追加する
                         {
-                            JsonDataClass.Grade.RescueRequestState[] rescue_resize = new JsonDataClass.Grade.RescueRequestState[grade.rescueRequestState.Length+1];
-                            for(var i = 0; i < grade.rescueRequestState.Length; i++)
+                            JsonDataClass.Grade.RescueRequestState[] rescue_resize = new JsonDataClass.Grade.RescueRequestState[grade.rescueRequestState.Length + 1];
+                            for (var i = 0; i < grade.rescueRequestState.Length; i++)
                             {
                                 rescue_resize[i] = grade.rescueRequestState[i];
                             }
-                            rescue_resize[rescue_resize.Length -1] = res;//rescue_resize[rescue_resize.Length-1]
+                            rescue_resize[rescue_resize.Length - 1] = res;//rescue_resize[rescue_resize.Length-1]
                             grade.rescueRequestState = rescue_resize;
                         }
                         else        //成績データにrNumberに該当するデータがあればそのデータを上書きする
@@ -363,7 +382,7 @@ namespace studyApp.Views
                             {
                                 rescue_resize[i] = grade.rescueRequestState[i];
                             }
-                            rescue_resize[rescue_resize.Length -1] = res;//rescue_resize[rescue_resize.Length-1]
+                            rescue_resize[rescue_resize.Length - 1] = res;//rescue_resize[rescue_resize.Length-1]
                             grade.rescueRequestState = rescue_resize;
                         }
                         else        //成績データにrNumberに該当するデータがあればそのデータを上書きする

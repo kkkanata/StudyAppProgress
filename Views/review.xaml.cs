@@ -101,20 +101,24 @@ namespace studyApp.Views
                                 requestNameText = "（" +rescue.rCategory + "）"
                             }
                         };
-
-                        //questionの配列の要素
-                        var qAccident = rescueRequestState.workAccident.sNumber;
-                        //choicesの配列の要素
-                        var Accident = rescueRequestState.workAccident.sChoices;
-                        // qAccidentとAccidentが見つからなかったら-1を返す
-                        var elesNum = dataSearch.QuestionSearch(elerNum, qAccident);
-                        if(elesNum != -1)
+                        for (int i = 0; i < rescueRequestState.workAccident.Length; i++)
                         {
-                            var elesCho = dataSearch.ChoicesSearch(elerNum, elesNum, Accident);
-                            // 返された値が-1なら飛ばす
-                            if (elesNum >= 0 && elesCho >= 0)
+
+                            if (rescueRequestState.workAccident[i] != null && rescueRequestState.workAccident.Length > i)
                             {
-                                this.accidentLists = new List<ViewModelData>
+                                //questionの配列の要素
+                                var qAccident = rescueRequestState.workAccident[i].sNumber;
+                                //choicesの配列の要素
+                                var Accident = rescueRequestState.workAccident[i].sChoices;
+                                // qAccidentとAccidentが見つからなかったら-1を返す
+                                var elesNum = dataSearch.QuestionSearch(elerNum, qAccident);
+                                if (elesNum != -1)
+                                {
+                                    var elesCho = dataSearch.ChoicesSearch(elerNum, elesNum, Accident);
+                                    // 返された値が-1なら飛ばす
+                                    if (elesNum >= 0 && elesCho >= 0)
+                                    {
+                                        this.accidentLists = new List<ViewModelData>
                                 {
                                     // 作業事故の表示内容
                                     new ViewModelData{
@@ -122,6 +126,8 @@ namespace studyApp.Views
                                         accidenttext ="A." + rescue.question[elesNum].choices[elesCho +1].cExplanation //なぜか一つ前にづれていたので+1して合わせている
                                     }
                                 };
+                                    }
+                                }
                             }
                         }
 

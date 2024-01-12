@@ -39,7 +39,7 @@
         },
         {
           "cNumber": 2,
-          "cAnswer": "ミス　分岐へ",
+          "cAnswer": "ミス　分岐へ2",
           "cRight": "ミス",
           "cDecrement": 5,
           "cNext": 2,
@@ -101,7 +101,7 @@
         },
         {
           "cNumber": 4,
-          "cAnswer": "ミス",
+          "cAnswer": "ミス2",
           "cRight": "作業事故",
           "cDecrement": 20,
           "cNext": null,
@@ -127,7 +127,7 @@
           "cRight": "作業事故",
           "cDecrement": 100,
           "cNext": -1,
-          "cExplanation": "作業事故で救援失敗です。"
+          "cExplanation": "作業事故で救援失敗ですyeah。"
         },
         {
           "cNumber": 2,
@@ -147,7 +147,7 @@
         },
         {
           "cNumber": 4,
-          "cAnswer": "作業事故",
+          "cAnswer": "作業事故2",
           "cRight": "作業事故",
           "cDecrement": 100,
           "cNext": -1,

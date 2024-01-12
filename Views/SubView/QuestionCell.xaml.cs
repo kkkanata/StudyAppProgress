@@ -106,7 +106,7 @@ namespace studyApp
             DataSearch dataSearch = new DataSearch();
             IList<JsonDataClass.RescueRequestData> rescuRecest = (IList<JsonDataClass.RescueRequestData>)Application.Current.Properties["RescuRecest"];
             JsonDataClass.Grade.RescueRequestState rescue = new JsonDataClass.Grade.RescueRequestState();
-            JsonDataClass.Grade.RescueRequestState.WorkAccident work = new JsonDataClass.Grade.RescueRequestState.WorkAccident();
+            JsonDataClass.Grade.RescueRequestState.WorkAccident[] work = new JsonDataClass.Grade.RescueRequestState.WorkAccident[0];
             JsonDataClass.Grade.RescueRequestState.Miss[] miss = new JsonDataClass.Grade.RescueRequestState.Miss[0];
             // 救援依頼データの救援依頼番号にマッチする要素番号
             int rNum = dataSearch.rescueRequestSearch(rNumber);

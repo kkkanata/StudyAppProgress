@@ -57,9 +57,26 @@ namespace studyApp.Views
                 }
             }
             explanationStatementText.Text += com;
-            if (res.rScore == -1)//点数が満たなかった場合はなにも行わないようにしている
+            if (res.rScore == -1 && res.workAccident != null)
             {
-                explanationStatementText.Text += "作業事故\n・" + rescue[Num].question[res.workAccident.sNumber - 1].choices[res.workAccident.sChoices].cAnswer + "\n" + rescue[Num].question[res.workAccident.sNumber - 1].choices[res.workAccident.sChoices].cExplanation;//エラー個所(変数の値見れるようです)-1で配列の要素数と合わせている。これによって動くかなくなるJSONのエラーを別の方法で処理しようと思う。選択肢が三つの問題と四つの問題の違いでエラーが発生している模様(解決済み?)
+                explanationStatementText.Text += "作業事故\n・";
+                for (int i = 0; i < res.workAccident.Length; i++)
+                {
+                    // 作業事故の要素がnullでないことを確認
+                    if (res.workAccident[i] != null)
+                    {
+                        int sNumberIndex = res.workAccident[i].sNumber - 1; // 配列のインデックスに合わせるために-1
+                        int sChoicesIndex = res.workAccident[i].sChoices; // 既にインデックスとして適切
+
+                        // 配列の範囲内かどうかをチェック
+                        if (sNumberIndex >= 0 && sNumberIndex < rescue[Num].question.Length &&
+                            sChoicesIndex >= 0 && sChoicesIndex < rescue[Num].question[sNumberIndex].choices.Length)
+                        {
+                            explanationStatementText.Text += rescue[Num].question[sNumberIndex].choices[sChoicesIndex].cAnswer + "\n" +
+                                                             rescue[Num].question[sNumberIndex].choices[sChoicesIndex].cExplanation;
+                        }
+                    }
+                }
             }
             resultDetailText.Content = "作業事故：あり　ミス：" + res.rMissCount;
         }   

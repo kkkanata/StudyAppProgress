@@ -49,9 +49,10 @@ namespace studyApp.Views
                 false_text[i] = null;
                 right_num[i] = -1;
                 false_num[i] = -1;
+                bad_text[i] = null;//変更箇所
+                bad_num[i] = -1;//変更箇所
             }
-            bad_text = null;
-            bad_num = -1;              //初期化↑
+                        //初期化↑
             
             int rNum = (int)Application.Current.Properties["next"];     //大問が格納されてい配列の添え字
             questionStatementText.DataContext = rescu[rNum].question[qNum].qText;   //問題文を格納
@@ -73,8 +74,8 @@ namespace studyApp.Views
                 }
                 else if (rescu[rNum].question[qNum].choices[i].cRight == "作業事故")
                 {
-                    bad_text = answer[i];
-                    bad_num = i;
+                    bad_text[i] = answer[i];
+                    bad_num[i] = i;
                 }
             }
 
@@ -93,8 +94,8 @@ namespace studyApp.Views
         int[] right_num = { -1, -1, -1, -1 };       //cRightが"正解"の問題の選択肢番号の添え字を入れておくための配列
         string[] false_text = { "", "", "", "" };   //cRightが"ミス"の問題文を格納するための配列
         int[] false_num = { -1, -1, -1, -1 };       //cRightが"ミス"の問題の選択肢番号の添え字を入れておくための配列
-        string bad_text="";                         //cRightが"作業事故"の問題文を格納するための配列
-        int bad_num=-1;                             //cRightが"作業事故"の問題の選択肢番号の添え字を入れておくための配列
+        string[] bad_text= { "", "", "", "" };                         //cRightが"作業事故"の問題文を格納するための配列
+        int[] bad_num= { -1, -1, -1, -1 };                             //cRightが"作業事故"の問題の選択肢番号の添え字を入れておくための配列
         string[] Select = { "", "", "", "" };       //選んだ選択肢の問題文を格納するための配列
         string[] answer = { "", "", "", "" };       //一時的に問題文を格納しておくための配列
 
@@ -268,18 +269,22 @@ namespace studyApp.Views
                         if (Select[i] == right_text[j] && right_text[j] != null)//選んだ問題文が"正解"だったらright_numの添え字に沿った値を-1に変える
                         {
                             right_num[j] = -1;      //選べなかった"正解"の問題を識別するための処理
+                            
                         }
                     }
                 }
+                int[] miss_num = new int[0];
                 for (int i = 0; i < right_num.Length; i++)//選べなかった"正解"の減点数(cDecrement)を合計点(score)からマイナス　*複数選択問題の場合、選べなかった"正解"があると減点になる(単一選択の場合これはない)
                 {
                     if (right_num[i] != -1)         //right_numの配列の中に-1じゃない値があれば"選べなかった"正解"になる
                     {
+                        Array.Resize(ref miss_num, miss_num.Length + 1);
+                        miss_num[miss_num.Length - 1] = right_num[i] + 1;
                         res.rScore -= rescu[rNum].question[qNum].choices[right_num[i]].cDecrement; //合計点からマイナス
                     }
                 }
 
-                int[] miss_num = new int[0];           //ミスを選んだ時の減点処理↓
+                              //ミスを選んだ時の減点処理↓
                 for (int i = 0; i < Select.Length; i++)//選んだ選択肢の数、回す
                 {
                     for (int j = 0; j < false_num.Length; j++)//問題にある"ミス"の数、回す
@@ -315,17 +320,48 @@ namespace studyApp.Views
                 res.miss = miss_resize;
 
                 var q = dataSearch.QuestionSearch(rNum, rescu[rNum].question[qNum].qNext); //次の問題の添え字を格納
-                for (int i = 0; i < Select.Length; i++)//作業事故の処理↓
+
+                JsonDataClass.Grade.RescueRequestState.WorkAccident[] workAccidents;
+                if (res.workAccident == null)
                 {
-                    if (Select[i] == bad_text && Select[i] != null) //選んだ問題が"作業事故"のとき
+                    workAccidents = new JsonDataClass.Grade.RescueRequestState.WorkAccident[1];
+                }
+                else
+                {
+                    workAccidents = new JsonDataClass.Grade.RescueRequestState.WorkAccident[res.workAccident.Length + 1];
+                    Array.Copy(res.workAccident, workAccidents, res.workAccident.Length);
+                }
+
+                bool accidentAdded = false;
+                for (int i = 0; i < Select.Length; i++)
+                {
+                    if (Select[i] != null)
                     {
-                        res.rScore = -1;    //合計点を0にする
-                        q = -1;
-                        res.rAnswered = "解答ミス";
-                        res.workAccident.sNumber = rescu[rNum].question[qNum].qNumber;
-                        res.workAccident.sChoices = bad_num;       //作業事故を起こした問題番号と選択肢番号を格納(+1を消した)
+                        for (int j = 0; j < bad_num.Length; j++)
+                        {
+                            if (Select[i] == bad_text[j])
+                            {
+                                res.rScore = -1;
+                                q = -1;
+                                res.rAnswered = "解答ミス";
+
+                                // 新しい作業事故を作成して配列に追加
+                                JsonDataClass.Grade.RescueRequestState.WorkAccident accident = new JsonDataClass.Grade.RescueRequestState.WorkAccident
+                                {
+                                    sNumber = rescu[rNum].question[qNum].qNumber,
+                                    sChoices = bad_num[j]
+                                };
+                                workAccidents[workAccidents.Length - 1] = accident;
+                                accidentAdded = true;
+                                break;
+                            }
+                        }
                     }
-                }                                      //作業事故の処理↑
+                    if (accidentAdded) break;
+                }
+
+                // 更新した作業事故の配列をresに設定
+                res.workAccident = workAccidents;
 
                 if (q != -1)//最後の問題でなければ次の問題への遷移の処理     -1なら最後の問題
                 {

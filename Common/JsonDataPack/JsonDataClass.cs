@@ -44,7 +44,7 @@ namespace JsonDataPack
                 public int rSavePoint { get; set; }
                 public int rMissCount { get; set; }
                 public Miss[] miss { get; set; }
-                public WorkAccident workAccident { get; set; }
+                public WorkAccident[] workAccident { get; set; }//変更箇所12/30
                 public int rScore { get; set; }
 
             }
