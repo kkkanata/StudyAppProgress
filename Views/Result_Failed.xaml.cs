@@ -16,6 +16,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using studyApp.Common;
 using JsonDataPack;
+using System.Diagnostics;
 
 
 
@@ -34,9 +35,9 @@ namespace studyApp.Views
             DataSearch dataSearch = new DataSearch();
             JsonDataClass.Grade.RescueRequestState res = (JsonDataClass.Grade.RescueRequestState)Application.Current.Properties["Rescue"];
 
-            
-
+            //選択した選択肢を取得する
             // 表示する文字列格納用
+            List<string> bad_choices = new List<string>();
             string com = "";
             // ミスの表示
             if (res.miss[0].mChoices.Length > 0)
@@ -59,9 +60,10 @@ namespace studyApp.Views
             explanationStatementText.Text += com;
             if (res.rScore == -1 && res.workAccident != null)
             {
-                explanationStatementText.Text += "作業事故\n・";
+                explanationStatementText.Text += "作業事故\n";
                 for (int i = 0; i < res.workAccident.Length; i++)
                 {
+                    //Debug.WriteLine(rescue[Num].question[res.workAccident[i].sNumber - 1].choices[res.workAccident[i].sChoices].cAnswer);
                     // 作業事故の要素がnullでないことを確認
                     if (res.workAccident[i] != null)
                     {
@@ -72,8 +74,8 @@ namespace studyApp.Views
                         if (sNumberIndex >= 0 && sNumberIndex < rescue[Num].question.Length &&
                             sChoicesIndex >= 0 && sChoicesIndex < rescue[Num].question[sNumberIndex].choices.Length)
                         {
-                            explanationStatementText.Text += rescue[Num].question[sNumberIndex].choices[sChoicesIndex].cAnswer + "\n" +
-                                                             rescue[Num].question[sNumberIndex].choices[sChoicesIndex].cExplanation;
+                            //作業事故の選択肢の文言と解説文をexplanationStatementText.Textと結合させる
+                            explanationStatementText.Text += $"・{rescue[Num].question[sNumberIndex].choices[sChoicesIndex].cAnswer}\n{rescue[Num].question[sNumberIndex].choices[sChoicesIndex].cExplanation}\n";
                         }
                     }
                 }
