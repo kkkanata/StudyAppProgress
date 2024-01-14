@@ -22,10 +22,7 @@
       "qCheckPoint": false,
       "qType": "複数選択",
       "qText": "救援依頼者との待合場所に到着しました。\r\nこの時、JAFの車両を駐車する際に行うことをすべて答えよ。",
-      "qPhotos": [
-        "rescueRequest001001_1.jpg",
-        "rescueRequest001001_2.jpeg"
-      ],
+      "qPhotos": ["rescueRequest001001_1.jpg", "rescueRequest001001_2.jpeg"],
       "qNext": 2,
       "qCoordinateX": 0,
       "qCoordinateY": 0,
@@ -81,17 +78,17 @@
         {
           "cNumber": 1,
           "cAnswer": "ボンネットを開けて確認する",
-          "cRight": "ミス",
+          "cRight": "作業事故",
           "cDecrement": 5,
-          "cNext": 3,
+          "cNext": 0,
           "cExplanation": "ボンネットを開ける前に傷の確認をして依頼者とのトラブルを避けましょう。"
         },
         {
           "cNumber": 2,
           "cAnswer": "エンジンが動かないか確認する",
-          "cRight": "ミス",
+          "cRight": "作業事故",
           "cDecrement": 5,
-          "cNext": 3,
+          "cNext": 0,
           "cExplanation": "エンジンの確認を行う前に傷の確認をして依頼者とのトラブルを避けましょう。"
         },
         {
@@ -117,9 +114,7 @@
       "qCheckPoint": true,
       "qType": "単一選択",
       "qText": "分岐テスト　親\r\n※画像は関係ないですが適当に配置",
-      "qPhotos": [
-        "rescueRequest001003_1.jpg"
-      ],
+      "qPhotos": ["rescueRequest001003_1.jpg"],
       "qNext": null,
       "qCoordinateX": 0,
       "qCoordinateY": 0,
@@ -163,9 +158,7 @@
       "qCheckPoint": false,
       "qType": "単一選択",
       "qText": "分岐ルート\r\n成功でルート復帰　失敗で作業事故として終了\r\n二択問題",
-      "qPhotos": [
-        "rescueRequest001004_1.png"
-      ],
+      "qPhotos": ["rescueRequest001004_1.png"],
       "qNext": null,
       "qCoordinateX": 0,
       "qCoordinateY": 0,
@@ -193,9 +186,7 @@
       "qCheckPoint": true,
       "qType": "複数選択",
       "qText": "最終問題\r\nバッテリー同士をつなげる際の正しい方法を選択せよ。",
-      "qPhotos": [
-        "rescueRequest001005_1.jpg"
-      ],
+      "qPhotos": ["rescueRequest001005_1.jpg"],
       "qNext": -1,
       "qCoordinateX": 0,
       "qCoordinateY": 0,

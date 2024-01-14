@@ -101,6 +101,8 @@ namespace studyApp.Views
                                 requestNameText = "（" +rescue.rCategory + "）"
                             }
                         };
+                        this.accidentLists = new List<ViewModelData>() { };
+
                         for (int i = 0; i < rescueRequestState.workAccident.Length; i++)
                         {
 
@@ -118,19 +120,17 @@ namespace studyApp.Views
                                     // 返された値が-1なら飛ばす
                                     if (elesNum >= 0 && elesCho >= 0)
                                     {
-                                        this.accidentLists = new List<ViewModelData>
-                                {
-                                    // 作業事故の表示内容
-                                    new ViewModelData{
-                                        questiontext ="Q." + rescue.question[elesNum].choices[elesCho +1].cAnswer, //なぜか一つ前にづれていたので+1して合わせている
-                                        accidenttext ="A." + rescue.question[elesNum].choices[elesCho +1].cExplanation //なぜか一つ前にづれていたので+1して合わせている
-                                    }
-                                };
+                                        //accidentListsに代入
+                                        this.accidentLists.Add(new ViewModelData
+                                        {
+                                            // 作業事故の表示内容
+                                            questiontext = "Q." + rescue.question[elesNum].choices[elesCho].cAnswer, //なぜか一つ前にづれていたので+1して合わせている
+                                            accidenttext = "A." + rescue.question[elesNum].choices[elesCho].cExplanation //なぜか一つ前にづれていたので+1して合わせている
+                                        });
                                     }
                                 }
                             }
                         }
-
 
                         //ミスの数
                         var missCount = 0;

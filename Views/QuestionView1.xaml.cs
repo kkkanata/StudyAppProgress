@@ -49,9 +49,10 @@ namespace studyApp.Views
             {
                 false_text[i] = null;
                 false_num[i] = -1;
+                bad_text[i] = null;
+                bad_num[i] = -1;
             }
-            bad_text = null;
-            bad_num = -1;              //初期化↑
+                       //初期化↑
 
             int rNum = (int)Application.Current.Properties["next"];     //大問が格納されてい配列の添え字
             questionStatementText.DataContext = rescu[rNum].question[qNum].qText;   //問題文を格納
@@ -73,8 +74,8 @@ namespace studyApp.Views
                 }
                 else if (rescu[rNum].question[qNum].choices[i].cRight == "作業事故")
                 {
-                    bad_text = answer[i];
-                    bad_num = i;
+                    bad_text[i] = answer[i];
+                    bad_num[i] = i;
                 }
             }
             string exePath = System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -92,9 +93,9 @@ namespace studyApp.Views
         string right_text = "";                       //cRightが"正解"の問題文を格納するための変数
         int right_num = -1;                           //cRightが"正解"の問題の選択肢番号の添え字を入れておくための変数
         string[] false_text = { "", "", "", "" };   　//cRightが"ミス"の問題文を格納するための配列
-        int[] false_num = { -1, -1, -1, -1 };       　//cRightが"ミス"の問題の選択肢番号の添え字を入れておくための配列
-        string bad_text = "";                         //cRightが"作業事故"の問題文を格納するための配列
-        int bad_num = -1;                             //cRightが"作業事故"の問題の選択肢番号の添え字を入れておくための配列(配列?)
+        int[] false_num = { -1, -1, -1, -1 };        //cRightが"ミス"の問題の選択肢番号の添え字を入れておくための配列
+        string[] bad_text = { "", "", "", "" };                         //cRightが"作業事故"の問題文を格納するための配列
+        int[] bad_num = { -1, -1, -1, -1 };                             //cRightが"作業事故"の問題の選択肢番号の添え字を入れておくための配列
         string[] answer = { "", "", "", "" };       　//一時的に問題文を格納しておくための配列
 
         public class Control        //問題文を表示するための処理↓
@@ -294,30 +295,31 @@ namespace studyApp.Views
                     res.workAccident = new JsonDataClass.Grade.RescueRequestState.WorkAccident[1];
                 }
 
+
                 // 作業事故の処理
-                if (text == bad_text)
+                List<JsonDataClass.Grade.RescueRequestState.WorkAccident> workAccidents = new List<JsonDataClass.Grade.RescueRequestState.WorkAccident>();
+                if (text != null)
                 {
-                    res.rScore = -1;
-                    q = -1;
-                    cnext = bad_num;
-                    res.rAnswered = "解答ミス";
-
-                    // 作業事故の配列を拡張
-                    JsonDataClass.Grade.RescueRequestState.WorkAccident[] workAccidents = new JsonDataClass.Grade.RescueRequestState.WorkAccident[res.workAccident.Length + 1];
-                    Array.Copy(res.workAccident, workAccidents, res.workAccident.Length);
-
-                    // 新しい作業事故を作成して配列に追加
-                    JsonDataClass.Grade.RescueRequestState.WorkAccident accident = new JsonDataClass.Grade.RescueRequestState.WorkAccident
+                    for (int i = 0; i < bad_num.Length; i++)
                     {
-                        sNumber = rescu[rNum].question[qNum].qNumber,
-                        sChoices = bad_num
-                    };
-                    workAccidents[workAccidents.Length - 1] = accident;
+                        if (text == bad_text[i])
+                        {
+                            res.rScore = -1;
+                            q = -1;
+                            cnext = bad_num[i];
+                            res.rAnswered = "解答ミス";
 
-                    // 更新した作業事故の配列をresに設定
-                    res.workAccident = workAccidents;
+                            // 新しい作業事故を作成して配列に追加
+                            JsonDataClass.Grade.RescueRequestState.WorkAccident accident = new JsonDataClass.Grade.RescueRequestState.WorkAccident
+                            {
+                                sNumber = rescu[rNum].question[qNum].qNumber,
+                                sChoices = bad_num[i]+1
+                            };
+                            workAccidents.Add(accident);
+                        }
+                    }
                 }
-
+                res.workAccident = workAccidents.ToArray();
                 q = dataSearch.QuestionSearch(rNum, rescu[rNum].question[qNum].choices[cnext].cNext);//変更箇所このコードが作業事故の処理の前にあったためエラーが出ていた
 
                 if (q != -1)            //最後の問題でなければ次の問題への遷移の処理     -1なら最後の問題

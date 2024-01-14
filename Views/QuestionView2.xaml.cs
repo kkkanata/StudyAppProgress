@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using studyApp.Common;
 using studyApp.Views.SubView;
 using JsonDataPack;
+using System.Diagnostics;
 
 
 namespace studyApp.Views
@@ -321,18 +322,8 @@ namespace studyApp.Views
 
                 var q = dataSearch.QuestionSearch(rNum, rescu[rNum].question[qNum].qNext); //次の問題の添え字を格納
 
-                JsonDataClass.Grade.RescueRequestState.WorkAccident[] workAccidents;
-                if (res.workAccident == null)
-                {
-                    workAccidents = new JsonDataClass.Grade.RescueRequestState.WorkAccident[1];
-                }
-                else
-                {
-                    workAccidents = new JsonDataClass.Grade.RescueRequestState.WorkAccident[res.workAccident.Length + 1];
-                    Array.Copy(res.workAccident, workAccidents, res.workAccident.Length);
-                }
-
-                bool accidentAdded = false;
+                //workAccidentsの宣言（作業事故を格納する変数）
+                List<JsonDataClass.Grade.RescueRequestState.WorkAccident> workAccidents = new List<JsonDataClass.Grade.RescueRequestState.WorkAccident>();
                 for (int i = 0; i < Select.Length; i++)
                 {
                     if (Select[i] != null)
@@ -349,19 +340,15 @@ namespace studyApp.Views
                                 JsonDataClass.Grade.RescueRequestState.WorkAccident accident = new JsonDataClass.Grade.RescueRequestState.WorkAccident
                                 {
                                     sNumber = rescu[rNum].question[qNum].qNumber,
-                                    sChoices = bad_num[j]
+                                    sChoices = bad_num[j]+1 //ここが-1ズレているので現状維持か修正か判断中
                                 };
-                                workAccidents[workAccidents.Length - 1] = accident;
-                                accidentAdded = true;
-                                break;
+                                workAccidents.Add(accident);
                             }
                         }
                     }
-                    if (accidentAdded) break;
                 }
-
                 // 更新した作業事故の配列をresに設定
-                res.workAccident = workAccidents;
+                res.workAccident = workAccidents.ToArray();
 
                 if (q != -1)//最後の問題でなければ次の問題への遷移の処理     -1なら最後の問題
                 {
@@ -404,6 +391,7 @@ namespace studyApp.Views
                             int gNum = dataSearch.ResqueSearch(res.rNumber);
                             grade.rescueRequestState[gNum] = res;
                         }
+                        //成績ファイルに成績データを出力
                         writeGradeData(grade);
                         var Failed = new Result_Failed();
                         this.NavigationService.Navigate(Failed);        //失敗画面へ
