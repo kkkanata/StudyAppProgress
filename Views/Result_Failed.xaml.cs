@@ -68,7 +68,7 @@ namespace studyApp.Views
                     if (res.workAccident[i] != null)
                     {
                         int sNumberIndex = res.workAccident[i].sNumber - 1; // 配列のインデックスに合わせるために-1
-                        int sChoicesIndex = res.workAccident[i].sChoices; // 既にインデックスとして適切
+                        int sChoicesIndex = res.workAccident[i].sChoices -1; // 既にインデックスとして適切
 
                         // 配列の範囲内かどうかをチェック
                         if (sNumberIndex >= 0 && sNumberIndex < rescue[Num].question.Length &&

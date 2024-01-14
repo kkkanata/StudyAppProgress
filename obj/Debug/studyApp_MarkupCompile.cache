@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\sumom\source\repos\StudyAppProgress\obj\Debug\
+C:\Users\user\Desktop\StudyAppProgress2\obj\Debug\
 studyApp
 none
 false
 DEBUG;TRACE
-C:\Users\sumom\source\repos\StudyAppProgress\App.xaml
+C:\Users\user\Desktop\StudyAppProgress2\App.xaml
 21-1445259572
 
 33927912717
-27-1342023060
+27-1853652616
 Views\GradeView.xaml;Views\QuestionView1.xaml;Views\QuestionView2.xaml;Views\Result_Failed.xaml;Views\Result_Success.xaml;Views\SubView\Change_Completed.xaml;Views\SubView\Change_Failed.xaml;Views\SubView\LabelPackage.xaml;Views\SubView\QequestGrade_Button.xaml;Views\SubView\ResultUserControl.xaml;Views\review.xaml;Views\Mainpage.xaml;Views\SubView\QuestionCell.xaml;Views\RequestView.xaml;Views\SubView\ChangePasswordView.xaml;Views\MainWindow.xaml;Views\LoginView.xaml;Views\SubView\InstructionView.xaml;Views\SubView\QuestionImageView.xaml;Views\SubView\UserControl_QuestionView1.xaml;Views\SubView\UserControl_QuestionView2.xaml;
 
 False

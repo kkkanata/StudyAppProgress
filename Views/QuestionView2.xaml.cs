@@ -340,7 +340,7 @@ namespace studyApp.Views
                                 JsonDataClass.Grade.RescueRequestState.WorkAccident accident = new JsonDataClass.Grade.RescueRequestState.WorkAccident
                                 {
                                     sNumber = rescu[rNum].question[qNum].qNumber,
-                                    sChoices = bad_num[j] //ここが-1ズレているので現状維持か修正か判断中
+                                    sChoices = bad_num[j]+1 //ここが-1ズレているので現状維持か修正か判断中
                                 };
                                 workAccidents.Add(accident);
                             }
