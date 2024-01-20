@@ -1,229 +1,135 @@
 {
-  "rNumber": 1,
-  "rVehicle": "タント",
-  "rVNumber": "98-76",
-  "rCapacity": "2,000kg",
-  "rWorkPlace": "○○支部",
-  "rMeetingPlace": "○○さん　自宅前",
-  "rCategory": "エンジン不始動",
-  "rTitle": "エンジンが動かない",
-  "rStatus": "バッテリー上がり",
-  "rPlace": "自宅　駐車場",
-  "rDetail": "近所のスーパーで買い物しようと車のエンジンをつけようとしたが付かなかった。昨日、室内灯をつけっぱなしにしてた気がする。",
-  "rCarColor": "白色",
-  "rPhoto": "rescueRequest001.jpg",
-  "rSuccessScore": 75,
-  "rCreateDate": "2023/12/27",
-  "rPublic": true,
-  "rStartQuestion": 1,
-  "Question": [
-    {
-      "qNumber": 1,
-      "qCheckPoint": false,
-      "qType": "複数選択",
-      "qText": "救援依頼者との待合場所に到着しました。\r\nこの時、JAFの車両を駐車する際に行うことをすべて答えよ。",
-      "qPhotos": ["rescueRequest001001_1.jpg", "rescueRequest001001_2.jpeg"],
-      "qNext": 2,
-      "qCoordinateX": 0,
-      "qCoordinateY": 0,
-      "choices": [
+    "rNumber": 1,
+    "rVehicle": "軽トラック",
+    "rVNumber": "12-34",
+    "rCapacity": "5,000kg",
+    "rWorkPlace": "愛知支部",
+    "rMeetingPlace": "○○様　自宅",
+    "rCategory": "エンジン不始動",
+    "rTitle": "エンジンがかからない",
+    "rStatus": "バッテリー上がり",
+    "rPlace": "自宅",
+    "rDetail": "車を動かそうとエンジンを掛けたが動かなかった。室内灯がつけっぱなしになっていたのでバッテリーが上がったかもしれない。\r\n",
+    "rCarColor": "シルバー",
+    "rPhoto": "rescueRequest001.png",
+    "rSuccessScore": 60,
+    "rCreateDate": "2024/01/19",
+    "rPublic": true,
+    "rStartQuestion": 1,
+    "Question": [
         {
-          "cNumber": 1,
-          "cAnswer": "ハンドルを回し切る",
-          "cRight": "正解",
-          "cDecrement": 2,
-          "cNext": null,
-          "cExplanation": "後ろから追突されたときに救援依頼者の車から逸れるようにハンドルを限界まで回しましょう。"
+            "qNumber": 1,
+            "qCheckPoint": true,
+            "qType": "単一選択",
+            "qText": "現場に到着しました。まず何を行いますか？\r\n",
+            "qPhotos": [
+                "rescueRequest001001_1.jpg"
+            ],
+            "qNext": null,
+            "qCoordinateX": 0,
+            "qCoordinateY": 0,
+            "choices": [
+                {
+                    "cNumber": 1,
+                    "cAnswer": "安全対策の実施",
+                    "cRight": "正解",
+                    "cDecrement": 0,
+                    "cNext": 2,
+                    "cExplanation": "安全対策を行うことで作業中の事故を防止することが出来ます。\r\n"
+                },
+                {
+                    "cNumber": 2,
+                    "cAnswer": "エンジン始動前点検を行う",
+                    "cRight": "ミス",
+                    "cDecrement": 5,
+                    "cNext": 3,
+                    "cExplanation": "点検などの作業に入る前にまずは安全対策を行ってください。"
+                },
+                {
+                    "cNumber": 3,
+                    "cAnswer": "何もせず帰る",
+                    "cRight": "作業事故",
+                    "cDecrement": 50,
+                    "cNext": -1,
+                    "cExplanation": "何もせずに帰るのはやめましょう。\r\nまずは安全対策を行ってみましょう。"
+                }
+            ]
         },
         {
-          "cNumber": 2,
-          "cAnswer": "手袋をつける",
-          "cRight": "作業事故",
-          "cDecrement": 2,
-          "cNext": null,
-          "cExplanation": "まだ、手袋を着ける必要はありません。"
+            "qNumber": 2,
+            "qCheckPoint": true,
+            "qType": "複数選択",
+            "qText": "安全対策で行うことを次の選択肢の中から全て選んでください。###################################################################################################################################3",
+            "qPhotos": [
+                "rescueRequest001002_1.jpg"
+            ],
+            "qNext": 3,
+            "qCoordinateX": 0,
+            "qCoordinateY": 0,
+            "choices": [
+                {
+                    "cNumber": 1,
+                    "cAnswer": "ハンドルを限界まで回す",
+                    "cRight": "正解",
+                    "cDecrement": 5,
+                    "cNext": null,
+                    "cExplanation": "後ろから衝突された際に正面ではなく斜めに動くのでお客様の車に衝突する可能性を減らせます。"
+                },
+                {
+                    "cNumber": 2,
+                    "cAnswer": "手袋を装着する",
+                    "cRight": "ミス",
+                    "cDecrement": 5,
+                    "cNext": null,
+                    "cExplanation": "手袋を装着するのは大切ではありますが、現段階では装着する必要はありません。"
+                },
+                {
+                    "cNumber": 3,
+                    "cAnswer": "輪止めを装着する",
+                    "cRight": "正解",
+                    "cDecrement": 5,
+                    "cNext": null,
+                    "cExplanation": "輪止めを装着することで予期せず車が動くことを防止できます"
+                },
+                {
+                    "cNumber": 4,
+                    "cAnswer": "タイヤをまっすぐにする",
+                    "cRight": "作業事故",
+                    "cDecrement": 100,
+                    "cNext": null,
+                    "cExplanation": "タイヤをまっすぐにしてしまうと後ろから衝突されたさいにお客様の車に衝突してしまう可能性があるので限界までハンドルを回し、衝突する可能性を減らしましょう"
+                }
+            ]
         },
         {
-          "cNumber": 3,
-          "cAnswer": "輪止めを装着する",
-          "cRight": "正解",
-          "cDecrement": 2,
-          "cNext": null,
-          "cExplanation": "輪止めを装着して不意に動き出すことを防ぎましょう"
-        },
-        {
-          "cNumber": 4,
-          "cAnswer": "タイヤを真っ直ぐにする",
-          "cRight": "作業事故",
-          "cDecrement": 2,
-          "cNext": null,
-          "cExplanation": "タイヤは真っ直ぐにしてはいけません。後ろから追突された場合、依頼者の車に衝突してしまいます。"
+            "qNumber": 3,
+            "qCheckPoint": false,
+            "qType": "単一選択",
+            "qText": "エンジン始動前点検を行いますがエンジンオイルの点検する方法を答えてください。\r\n",
+            "qPhotos": [
+                "rescueRequest001003_1.jpg"
+            ],
+            "qNext": null,
+            "qCoordinateX": 0,
+            "qCoordinateY": 0,
+            "choices": [
+                {
+                    "cNumber": 1,
+                    "cAnswer": "一度、ふき取ってから再度確認する",
+                    "cRight": "正解",
+                    "cDecrement": 0,
+                    "cNext": -1,
+                    "cExplanation": "エンジンオイルを確認する際は一度ふき取ってから確認をしないと正確な結果が得られません。"
+                },
+                {
+                    "cNumber": 2,
+                    "cAnswer": "エンジンを動かした状態で確認する。",
+                    "cRight": "作業事故",
+                    "cDecrement": 50,
+                    "cNext": -1,
+                    "cExplanation": "\r\nエンジンを動かした状態で確認を行うと正確な結果が得られませんのでエンジンは動かさずに確認しましょう。"
+                }
+            ]
         }
-      ]
-    },
-    {
-      "qNumber": 2,
-      "qCheckPoint": false,
-      "qType": "単一選択",
-      "qText": "依頼者の確認も終わり車両の調査を行います。まず何を行いますか？",
-      "qPhotos": [
-        "rescueRequest001002_1.jpg",
-        "rescueRequest001002_2.jpg",
-        "rescueRequest001002_3.jpeg"
-      ],
-      "qNext": null,
-      "qCoordinateX": 0,
-      "qCoordinateY": 0,
-      "choices": [
-        {
-          "cNumber": 1,
-          "cAnswer": "ボンネットを開けて確認する",
-          "cRight": "作業事故",
-          "cDecrement": 5,
-          "cNext": 0,
-          "cExplanation": "ボンネットを開ける前に傷の確認をして依頼者とのトラブルを避けましょう。"
-        },
-        {
-          "cNumber": 2,
-          "cAnswer": "エンジンが動かないか確認する",
-          "cRight": "作業事故",
-          "cDecrement": 5,
-          "cNext": 0,
-          "cExplanation": "エンジンの確認を行う前に傷の確認をして依頼者とのトラブルを避けましょう。"
-        },
-        {
-          "cNumber": 3,
-          "cAnswer": "車体の傷の確認",
-          "cRight": "正解",
-          "cDecrement": 0,
-          "cNext": 3,
-          "cExplanation": "事前に車体の傷の有無を確認することで後ほど依頼者との傷についてのトラブルを避けることができます。"
-        },
-        {
-          "cNumber": 4,
-          "cAnswer": "輪止めを装着する",
-          "cRight": "ミス",
-          "cDecrement": 5,
-          "cNext": 3,
-          "cExplanation": "輪止めの装着を行う前に傷の確認をして依頼者とのトラブルを避けましょう。"
-        }
-      ]
-    },
-    {
-      "qNumber": 3,
-      "qCheckPoint": true,
-      "qType": "単一選択",
-      "qText": "分岐テスト　親\r\n※画像は関係ないですが適当に配置",
-      "qPhotos": ["rescueRequest001003_1.jpg"],
-      "qNext": null,
-      "qCoordinateX": 0,
-      "qCoordinateY": 0,
-      "choices": [
-        {
-          "cNumber": 1,
-          "cAnswer": "正規ルート（正解）へ",
-          "cRight": "正解",
-          "cDecrement": 0,
-          "cNext": 5,
-          "cExplanation": "正解です。正規ルートへ"
-        },
-        {
-          "cNumber": 2,
-          "cAnswer": "分岐（ミス）へ",
-          "cRight": "ミス",
-          "cDecrement": 2,
-          "cNext": 4,
-          "cExplanation": "ミスで分岐へ\r\n成功で正規ルートへ復帰、失敗で作業事故として終了"
-        },
-        {
-          "cNumber": 3,
-          "cAnswer": "分岐（ミス）へ2",
-          "cRight": "ミス",
-          "cDecrement": 3,
-          "cNext": 4,
-          "cExplanation": "ミスで分岐へ\r\n成功でルート復帰　失敗で終了"
-        },
-        {
-          "cNumber": 4,
-          "cAnswer": "終了（作業事故）へ",
-          "cRight": "作業事故",
-          "cDecrement": 100,
-          "cNext": -1,
-          "cExplanation": "作業失敗で終了"
-        }
-      ]
-    },
-    {
-      "qNumber": 4,
-      "qCheckPoint": false,
-      "qType": "単一選択",
-      "qText": "分岐ルート\r\n成功でルート復帰　失敗で作業事故として終了\r\n二択問題",
-      "qPhotos": ["rescueRequest001004_1.png"],
-      "qNext": null,
-      "qCoordinateX": 0,
-      "qCoordinateY": 0,
-      "choices": [
-        {
-          "cNumber": 1,
-          "cAnswer": "ルート復帰",
-          "cRight": "正解",
-          "cDecrement": 0,
-          "cNext": 5,
-          "cExplanation": "先ほどのミスをカバーできたため作業に復帰できました。"
-        },
-        {
-          "cNumber": 2,
-          "cAnswer": "作業事故",
-          "cRight": "作業事故",
-          "cDecrement": 100,
-          "cNext": -1,
-          "cExplanation": "先ほどのミスをカバーできなかったため作業事故が発生し、救援失敗です。"
-        }
-      ]
-    },
-    {
-      "qNumber": 5,
-      "qCheckPoint": true,
-      "qType": "複数選択",
-      "qText": "最終問題\r\nバッテリー同士をつなげる際の正しい方法を選択せよ。",
-      "qPhotos": ["rescueRequest001005_1.jpg"],
-      "qNext": -1,
-      "qCoordinateX": 0,
-      "qCoordinateY": 0,
-      "choices": [
-        {
-          "cNumber": 1,
-          "cAnswer": "ケーブルは＋極から付ける",
-          "cRight": "正解",
-          "cDecrement": 20,
-          "cNext": null,
-          "cExplanation": "ケーブルは＋極から付けましょう。"
-        },
-        {
-          "cNumber": 2,
-          "cAnswer": "ケーブルはー極から付ける",
-          "cRight": "作業事故",
-          "cDecrement": 20,
-          "cNext": null,
-          "cExplanation": "ケーブルは＋極から付けましょう。"
-        },
-        {
-          "cNumber": 3,
-          "cAnswer": "ケーブルは＋極から外す",
-          "cRight": "作業事故",
-          "cDecrement": 20,
-          "cNext": null,
-          "cExplanation": "付けるときとは逆に外すときはー極から外しましょう。"
-        },
-        {
-          "cNumber": 4,
-          "cAnswer": "ケーブルはー極から外す",
-          "cRight": "正解",
-          "cDecrement": 20,
-          "cNext": null,
-          "cExplanation": "付けるときとは逆に外すときはー極から外しましょう。"
-        }
-      ]
-    }
-  ]
+    ]
 }
