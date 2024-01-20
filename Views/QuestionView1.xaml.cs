@@ -18,6 +18,7 @@ using studyApp.Common;
 using studyApp.SubViews;
 using studyApp.Views.SubView;
 using JsonDataPack;
+using System.Globalization;
 
 
 namespace studyApp.Views
@@ -411,6 +412,53 @@ namespace studyApp.Views
             {
                 MessageBox.Show("結果を保存できませんでした。");
             }
+        }
+
+
+        //問題分のフォントサイズ調整
+        private void TextBlock_Loaded(object sender, RoutedEventArgs e)
+        {
+            TextBlock textBlock = (TextBlock)sender;
+
+            // TextBlock内の改行回数を取得
+            int lineCount = GetLineCount(textBlock);
+
+            // 改行回数に応じてフォントサイズを調整
+            AdjustFontSizeBasedOnLineCount(textBlock, lineCount);
+        }
+
+        private int GetLineCount(TextBlock textBlock)
+        {
+            // TextFormatterを使用して改行回数を取得
+            var formattedText = new FormattedText(
+            textBlock.Text,
+            CultureInfo.CurrentCulture,
+            FlowDirection.LeftToRight,
+            new Typeface(textBlock.FontFamily, textBlock.FontStyle, textBlock.FontWeight, textBlock.FontStretch),
+            textBlock.FontSize,
+            Brushes.Black);
+
+            // 最大の行数を取得
+            int maxLineCount = (int)(textBlock.ActualHeight / formattedText.Height);
+            return maxLineCount;
+        }
+
+        private void AdjustFontSizeBasedOnLineCount(TextBlock textBlock, int maxLineCount)
+        {
+            // 例: 改行回数が2行以上の場合、フォントサイズを小さくする
+            if (maxLineCount >= 2)
+            {
+                textBlock.FontSize = 25;
+                if (maxLineCount < 4)
+                {
+                    textBlock.FontSize = 20; // 80%のサイズに変更
+                }
+                else
+                {
+                    textBlock.FontSize = 13;
+                }
+            }
+
         }
 
     }

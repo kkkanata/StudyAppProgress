@@ -36,8 +36,8 @@
     <Viewbox HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid Width="800" Height="450" Background="#FFF0F0F0">
             <StackPanel x:Name="sp1" Width="800" Height="450">
-                    <Label x:Name="questionStatementText" Content="{Binding}" HorizontalAlignment="Left" Margin="10,10,0,0" FontSize="28" VerticalAlignment="Top" Height="52" Width="515"/>
-                    <ItemsControl ItemsSource="{Binding Controls}">
+                <TextBlock x:Name="questionStatementText" Text="{Binding}" HorizontalAlignment="Left" Margin="10,10,0,0" FontSize="28" VerticalAlignment="Top" Height="52" Width="515" TextWrapping="Wrap" Loaded="TextBlock_Loaded"/>
+                <ItemsControl ItemsSource="{Binding Controls}">
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <studyApp.Views.SubView:UserControl_QuestionView2
